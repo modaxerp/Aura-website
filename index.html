@@ -8,13 +8,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS CDN for professional layout and responsiveness -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
             --neon-purple: #A020F0;
             --neon-cyan: #00FFFF;
             --bg-black: #000000;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -26,47 +30,13 @@
             padding: 0;
         }
 
-        /* AI Lens Animation */
-        .ai-lens-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
+        /* Logo Glow Effect */
+        .logo-glow {
+            filter: drop-shadow(0 0 15px rgba(160, 32, 240, 0.6)) drop-shadow(0 0 30px rgba(0, 255, 255, 0.4));
+            transition: transform 0.5s ease;
         }
-
-        .ai-lens-ring {
-            position: absolute;
-            border-radius: 50%;
-            border: 2px solid var(--neon-purple);
-            opacity: 0;
-            animation: ring-pulse 4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-        }
-
-        .ring-1 { animation-delay: 0s; }
-        .ring-2 { animation-delay: 1.3s; }
-        .ring-3 { animation-delay: 2.6s; }
-
-        @keyframes ring-pulse {
-            0% { width: 50px; height: 50px; opacity: 1; border-width: 4px; }
-            100% { width: 100%; height: 100%; opacity: 0; border-width: 1px; }
-        }
-
-        .ai-lens-core {
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, var(--neon-cyan) 0%, #008888 100%);
-            border-radius: 50%;
-            box-shadow: 0 0 40px var(--neon-cyan), 0 0 80px var(--neon-purple);
-            z-index: 10;
-            animation: core-glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes core-glow {
-            from { transform: scale(0.92); box-shadow: 0 0 30px var(--neon-cyan); }
-            to { transform: scale(1.08); box-shadow: 0 0 50px var(--neon-cyan), 0 0 90px var(--neon-purple); }
+        .logo-glow:hover {
+            transform: scale(1.05);
         }
 
         /* Glassmorphism Cards */
@@ -151,7 +121,7 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* Scrollbar custom for aesthetic */
+        /* Scrollbar custom */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #000; }
         ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
@@ -183,9 +153,9 @@
             
             <!-- Desktop Links -->
             <div class="hidden md:flex items-center space-x-12">
-                <a href="#features" class="nav-link text-xs tracking-widest">FEATURES</a>
-                <a href="#mission" class="nav-link text-xs tracking-widest">MISSION</a>
-                <a href="#contact" class="nav-link text-xs tracking-widest">CONTACT</a>
+                <a href="#features" class="nav-link text-xs tracking-widest uppercase">Features</a>
+                <a href="#mission" class="nav-link text-xs tracking-widest uppercase">Mission</a>
+                <a href="#contact" class="nav-link text-xs tracking-widest uppercase">Contact</a>
             </div>
 
             <!-- Mobile Menu Toggle -->
@@ -203,9 +173,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
-            <a href="#features" class="text-3xl font-black tracking-widest" onclick="closeMenu()">FEATURES</a>
-            <a href="#mission" class="text-3xl font-black tracking-widest" onclick="closeMenu()">MISSION</a>
-            <a href="#contact" class="text-3xl font-black tracking-widest" onclick="closeMenu()">CONTACT</a>
+            <a href="#features" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Features</a>
+            <a href="#mission" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Mission</a>
+            <a href="#contact" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Contact</a>
         </div>
     </nav>
 
@@ -215,11 +185,9 @@
         <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#A020F0]/10 rounded-full blur-[150px] pointer-events-none"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#00FFFF]/10 rounded-full blur-[150px] pointer-events-none"></div>
 
-        <div class="ai-lens-container mb-14">
-            <div class="ai-lens-ring ring-1"></div>
-            <div class="ai-lens-ring ring-2"></div>
-            <div class="ai-lens-ring ring-3"></div>
-            <div class="ai-lens-core"></div>
+        <div class="mb-14 flex justify-center">
+            <!-- LOGO RELIABILITY: Exact requested tag -->
+            <img src="logo.png" alt="Aura Bionics Logo" style="width: 150px; height: auto; display: block; margin: 0 auto;" class="logo-glow">
         </div>
 
         <h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9]">
@@ -227,13 +195,13 @@
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#A020F0] to-[#00FFFF]">AI Companion.</span>
         </h1>
         
-        <p class="text-lg md:text-2xl text-white/50 max-w-3xl mx-auto mb-16 font-light leading-relaxed">
-            Syncing Face, Mood, and Bio-Rhythms for a better version of you. 
-            Experience the fusion of biological intelligence and wellness coaching.
+        <p class="text-lg md:text-2xl text-white/60 max-w-3xl mx-auto mb-16 font-light leading-relaxed">
+            Redefining wellness with AI Vision. <br class="hidden md:block">
+            Syncing Face, Mood, and Bio-Rhythms.
         </p>
 
         <!-- Waitlist Form (Netlify Integrated) -->
-        <div class="w-full max-w-xl">
+        <div class="w-full max-w-xl mx-auto">
             <form 
                 id="waitlist-form"
                 name="waitlist" 
@@ -245,7 +213,7 @@
                 <input 
                     type="email" 
                     name="email" 
-                    placeholder="Enter email for early access..." 
+                    placeholder="Enter email for neural access..." 
                     required 
                     class="flex-1 px-8 py-5 rounded-2xl neon-input text-white font-semibold text-lg"
                 />
@@ -265,8 +233,8 @@
     <!-- Features Section -->
     <section id="features" class="py-32 px-6 max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
-            <div class="max-w-xl">
-                <h2 class="text-4xl md:text-6xl font-black mb-6 uppercase italic">Core Protocols</h2>
+            <div class="max-w-xl text-left">
+                <h2 class="text-4xl md:text-6xl font-black mb-6 uppercase italic">System Capabilities</h2>
                 <p class="text-white/40 text-xl font-light">Advanced biometric telemetry integrated with aesthetic awareness.</p>
             </div>
             <div class="h-px bg-white/10 flex-1 mx-12 hidden md:block mb-6"></div>
@@ -278,24 +246,24 @@
                 <div class="w-20 h-20 bg-[#00FFFF]/10 rounded-3xl flex items-center justify-center mb-10 border border-[#00FFFF]/20 group-hover:scale-110 transition-transform">
                     <svg class="w-10 h-10 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                 </div>
-                <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Smart Vision Analysis</h3>
-                <p class="text-white/40 leading-relaxed text-lg font-light">Real-time facial topography mapping decodes micro-expressions and skin vitality to optimize your daily regime.</p>
+                <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Smart Vision</h3>
+                <p class="text-white/40 leading-relaxed text-lg font-light">Analyzes facial micro-expressions and grooming details (skin, hair, fatigue) using GPT-4o Vision.</p>
             </div>
             <!-- Card 2 -->
             <div class="glass-card p-12 rounded-[3rem] group">
                 <div class="w-20 h-20 bg-[#A020F0]/10 rounded-3xl flex items-center justify-center mb-10 border border-[#A020F0]/20 group-hover:scale-110 transition-transform">
-                    <svg class="w-10 h-10 text-[#A020F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <svg class="w-10 h-10 text-[#A020F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
                 </div>
                 <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Voice Intelligence</h3>
-                <p class="text-white/40 leading-relaxed text-lg font-light">Neural acoustic engines detect tonal shifts and stress indicators to provide instant vocal bio-feedback.</p>
+                <p class="text-white/40 leading-relaxed text-lg font-light">Speak naturally to Eva (Caring) or Atlas (Disciplined). They listen, understand, and remember context.</p>
             </div>
             <!-- Card 3 -->
             <div class="glass-card p-12 rounded-[3rem] group">
                 <div class="w-20 h-20 bg-[#00FFFF]/10 rounded-3xl flex items-center justify-center mb-10 border border-[#00FFFF]/20 group-hover:scale-110 transition-transform">
-                    <svg class="w-10 h-10 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                    <svg class="w-10 h-10 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                 </div>
-                <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Holistic Coaching</h3>
-                <p class="text-white/40 leading-relaxed text-lg font-light">Leveraging proprietary biometric fusion, Aura provides non-judgmental, hyper-personalized wellness guidance.</p>
+                <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Holistic Sync</h3>
+                <p class="text-white/40 leading-relaxed text-lg font-light">Fuses your biometric data (Apple Health/Google Fit) with aesthetic analysis for judgment-free coaching.</p>
             </div>
         </div>
     </section>
@@ -304,57 +272,41 @@
     <section id="mission" class="py-32 px-6 bg-[#050505]">
         <div class="max-w-5xl mx-auto">
             <div class="text-center">
-                <h2 class="text-4xl md:text-7xl font-black mb-16 tracking-tighter uppercase">Who We Are</h2>
+                <h2 class="text-4xl md:text-7xl font-black mb-16 tracking-tighter uppercase italic">Who We Are</h2>
                 <div class="text-2xl md:text-4xl text-white/90 leading-tight font-extralight italic">
-                    "We are <span class="text-white font-bold not-italic border-b-2 border-[#A020F0]">Aura Bionics</span>. Our mission is to bridge the gap between biological data and aesthetic wellness. By leveraging GPT-4o and biometric fusion, we provide judgment-free, holistic coaching for the future self you've always envisioned."
+                    "We are Aura Bionics. Our mission is to bridge the gap between biological data and aesthetic wellness. By leveraging biometric fusion, we provide judgment-free, holistic coaching."
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-            <div>
-                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter">Get in Touch</h2>
-                <p class="text-2xl text-white/50 mb-16 font-light">Questions or Partnership? Our neural link is open.</p>
-                
-                <div class="space-y-12">
-                    <a href="mailto:info@aurabionics.com" class="flex items-center gap-8 group">
-                        <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#00FFFF] group-hover:bg-[#00FFFF]/5 transition-all">
-                            <svg class="w-8 h-8 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white/40 uppercase tracking-[0.3em] mb-2">Primary Email</h4>
-                            <p class="text-2xl font-bold group-hover:text-[#00FFFF] transition-colors">info@aurabionics.com</p>
-                        </div>
-                    </a>
-                    
-                    <div class="flex items-start gap-8">
-                        <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center border-[#A020F0]/30 bg-[#A020F0]/5">
-                            <svg class="w-8 h-8 text-[#A020F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white/40 uppercase tracking-[0.3em] mb-2">Location</h4>
-                            <p class="text-2xl font-bold leading-tight">
-                                2233 Argentia Rd. East Tower <br/>
-                                Suite 302 Mississauga, Ontario <br/>
-                                L5N 2X7, Canada
-                            </p>
-                        </div>
+    <section id="contact" class="py-32 px-6 max-w-7xl mx-auto text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase italic">Get in Touch</h2>
+            <p class="text-2xl text-white/50 mb-16 font-light">Questions or Partnership?</p>
+            
+            <div class="flex flex-col items-center space-y-16">
+                <!-- Email Item -->
+                <a href="mailto:info@aurabionics.com" class="flex flex-col items-center group">
+                    <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#00FFFF] group-hover:bg-[#00FFFF]/5 transition-all mb-4">
+                        <svg class="w-10 h-10 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     </div>
+                    <h4 class="text-xs font-bold text-white/40 uppercase tracking-[0.5em] mb-2">Email</h4>
+                    <p class="text-2xl md:text-4xl font-bold group-hover:text-[#00FFFF] transition-colors tracking-tight">info@aurabionics.com</p>
+                </a>
+                
+                <!-- Location Item -->
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center border-[#A020F0]/30 bg-[#A020F0]/5 mb-4">
+                        <svg class="w-10 h-10 text-[#A020F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h4 class="text-xs font-bold text-white/40 uppercase tracking-[0.5em] mb-2">Address</h4>
+                    <p class="text-2xl md:text-3xl font-bold leading-tight uppercase tracking-tight">
+                        2233 Argentia Rd. East Tower Suite 302 <br/>
+                        Mississauga, Ontario L5N 2X7
+                    </p>
                 </div>
-            </div>
-
-            <div class="relative h-[500px] bg-white/5 rounded-[4rem] border border-white/10 overflow-hidden flex items-center justify-center">
-                <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at center, #00FFFF 0%, transparent 70%);"></div>
-                <!-- Abstract UI Decoration -->
-                <div class="relative z-10 text-center space-y-4">
-                    <div class="text-[#00FFFF] font-mono text-sm tracking-[1em] uppercase animate-pulse">Scanning Bio-Signal...</div>
-                    <div class="text-6xl font-black opacity-10 uppercase tracking-tighter">Aura Network</div>
-                </div>
-                <!-- Grid decoration -->
-                <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 50px 50px;"></div>
             </div>
         </div>
     </section>
@@ -362,8 +314,9 @@
     <!-- Footer -->
     <footer class="py-16 border-t border-white/5 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <div class="text-white/40 text-sm font-semibold tracking-widest uppercase">
-                © 2026 AURA BIONICS INC. | ALL RIGHTS RESERVED
+            <div class="text-white/40 text-sm font-semibold tracking-widest uppercase text-center md:text-left">
+                © 2026 AURA BIONICS INC. <br class="md:hidden">
+                <span class="md:ml-4 text-[10px] block md:inline uppercase opacity-80">2233 Argentia Rd. East Tower Suite 302 Mississauga, Ontario L5N 2X7</span>
             </div>
             <div class="flex gap-12">
                 <a href="#" class="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold">Privacy Policy</a>
@@ -401,7 +354,6 @@
             
             const formData = new FormData(form);
             
-            // Standard Netlify AJAX submission pattern
             fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -412,14 +364,14 @@
                 successMsg.style.display = 'block';
             })
             .catch((error) => {
-                // If it fails (e.g. offline), we still show the success message for UX as requested
+                // Showing success message even on failure to ensure UI state progression
                 form.style.display = 'none';
                 successMsg.style.display = 'block';
                 console.error('Form submission error:', error);
             });
         });
 
-        // --- Scroll Listener for Navigation Header ---
+        // --- Scroll Listener for Header Shadow ---
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
