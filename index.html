@@ -409,8 +409,11 @@
                     Join Waitlist
                 </button>
             </form>
-            <div id="success-msg" class="mt-8 p-6 rounded-2xl border border-[#00FFFF]/50 bg-[#00FFFF]/10 text-[#00FFFF] text-xl font-bold tracking-tight">
-                Access Request Received. You are on the list. Stand by for signal.
+            <div id="success-msg" class="mt-8 p-8 rounded-2xl border border-[#00FFFF]/50 bg-[#00FFFF]/10 text-[#00FFFF] flex flex-col items-center">
+                <div class="text-xl font-bold tracking-tight mb-6 uppercase">Access Request Received. You are on the list. Stand by for signal.</div>
+                <button onclick="resetWaitlist()" class="text-xs font-black tracking-[0.3em] uppercase border border-[#00FFFF]/50 px-6 py-2 hover:bg-[#00FFFF] hover:text-black transition-all">
+                    [ ACKNOWLEDGE ]
+                </button>
             </div>
         </div>
     </section>
@@ -603,15 +606,25 @@
                 })
                 .then(() => {
                     form.style.display = 'none';
-                    successMsg.style.display = 'block';
+                    successMsg.style.display = 'flex';
                 })
                 .catch((error) => {
                     // Fail gracefully for demo purposes
                     form.style.display = 'none';
-                    successMsg.style.display = 'block';
+                    successMsg.style.display = 'flex';
                     console.error('Submission error:', error);
                 });
             });
+        }
+
+        function resetWaitlist() {
+            const form = document.getElementById('waitlist-form');
+            const successMsg = document.getElementById('success-msg');
+            if (form && successMsg) {
+                successMsg.style.display = 'none';
+                form.style.display = 'flex';
+                form.reset();
+            }
         }
 
         // Initialize Form Handlers
