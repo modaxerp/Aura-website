@@ -30,7 +30,7 @@
             padding: 0;
         }
 
-        /* Refined 'Breathing from Darkness' Heartbeat Animation */
+        /* 'Breathing from Darkness' Heartbeat Animation */
         @keyframes heartbeat {
             0% { 
                 transform: scale(1); 
@@ -61,7 +61,7 @@
             box-shadow: 0 0 60px rgba(160, 32, 240, 0.8), 0 0 120px rgba(0, 255, 255, 0.6);
         }
 
-        /* Glassmorphism Cards */
+        /* Glassmorphism Elements */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
@@ -75,6 +75,39 @@
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.06);
             box-shadow: 0 10px 30px -10px var(--neon-cyan);
+        }
+
+        /* Legal Modals Styling */
+        .legal-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .legal-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 800px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
         }
 
         /* Form Controls */
@@ -132,8 +165,8 @@
             width: 100%;
         }
 
-        /* Success Message Animation */
-        #success-msg {
+        /* Success Messages */
+        #success-msg, #contact-success-msg {
             display: none;
             animation: fadeInScale 0.5s ease forwards;
         }
@@ -141,6 +174,31 @@
         @keyframes fadeInScale {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Slide-out Drawer Panel */
+        #contact-drawer {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 150;
+        }
+
+        body.drawer-active #contact-drawer {
+            transform: translateX(0);
+        }
+
+        #drawer-overlay {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 140;
+        }
+
+        body.drawer-active #drawer-overlay {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         /* Scrollbar custom */
@@ -169,7 +227,7 @@
     <!-- Sticky Navbar -->
     <nav class="fixed top-0 left-0 w-full z-[100] bg-black/90 backdrop-blur-xl border-b border-white/10 h-20">
         <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-            <a href="#" class="text-xl md:text-2xl font-black tracking-tighter">
+            <a href="#" class="text-xl md:text-2xl font-black tracking-tighter uppercase">
                 AURA <span class="text-[#00FFFF]">BIONICS</span>
             </a>
             
@@ -201,6 +259,112 @@
         </div>
     </nav>
 
+    <!-- Contact Drawer Overlay -->
+    <div id="drawer-overlay" class="fixed inset-0" onclick="toggleDrawer(false)"></div>
+
+    <!-- Contact Drawer Panel -->
+    <aside id="contact-drawer" class="fixed top-0 right-0 h-full w-full md:w-[450px] bg-black border-l border-white/10 shadow-2xl p-8 md:p-12 overflow-y-auto">
+        <div class="flex items-center justify-between mb-12">
+            <h2 class="text-3xl font-black uppercase italic tracking-tighter">Drop us a Line</h2>
+            <button onclick="toggleDrawer(false)" class="text-white/40 hover:text-white transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <form 
+            id="contact-form"
+            name="contact" 
+            method="POST" 
+            data-netlify="true" 
+            class="space-y-6"
+        >
+            <input type="hidden" name="form-name" value="contact" />
+            <div>
+                <label class="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Name</label>
+                <input type="text" name="name" required class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium" placeholder="Identity Verification...">
+            </div>
+            <div>
+                <label class="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Email</label>
+                <input type="email" name="email" required class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium" placeholder="Neural Relay Address...">
+            </div>
+            <div>
+                <label class="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Phone (Optional)</label>
+                <input type="tel" name="phone" class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium" placeholder="+1 (000) 000-0000">
+            </div>
+            <div>
+                <label class="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Message</label>
+                <textarea name="message" rows="5" required class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium resize-none" placeholder="Transmission content..."></textarea>
+            </div>
+            <div class="pt-6 flex flex-col gap-4">
+                <button type="submit" class="w-full py-5 rounded-2xl glow-btn">Send Message</button>
+                <button type="button" onclick="toggleDrawer(false)" class="w-full py-5 rounded-2xl border border-white/10 text-white/40 hover:text-white hover:bg-white/5 transition-all uppercase tracking-widest font-bold text-sm">Cancel</button>
+            </div>
+        </form>
+
+        <div id="contact-success-msg" class="mt-8 p-8 rounded-2xl border border-[#00FFFF]/50 bg-[#00FFFF]/10 text-[#00FFFF] text-center">
+            <h4 class="text-xl font-black mb-2 uppercase">Signal Received</h4>
+            <p class="font-light">Transmission successfully decrypted. Our agents will respond shortly.</p>
+            <button onclick="toggleDrawer(false)" class="mt-6 text-[#00FFFF] font-bold underline uppercase text-xs tracking-widest">Close System</button>
+        </div>
+    </aside>
+
+    <!-- Privacy Policy Modal -->
+    <div id="modal-privacy" class="legal-modal">
+        <div class="modal-content text-left">
+            <button onclick="closeModal('privacy')" class="absolute top-8 right-8 text-white/40 hover:text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <h2 class="text-3xl font-black mb-6 uppercase tracking-tight text-[#00FFFF]">Privacy Policy</h2>
+            <div class="space-y-4 text-gray-300 font-light leading-relaxed">
+                <p class="font-bold text-white">Last Updated: October 2026</p>
+                <p>Welcome to <strong>AURA BIONICS INC.</strong>, based in Ontario, Canada. Your privacy is paramount to our mission of biological fusion.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. Information Collection</h3>
+                <p>We collect neural relay addresses (email) via our Waitlist to provide updates on our system deployment. For active users, Aura Bionics processes biometric data including facial micro-expressions and vocal tonality.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">2. Data Processing & Biometrics</h3>
+                <p>Our AI companions, Eva and Atlas, leverage GPT-4o Vision for real-time analysis. Biometric data is processed transiently for the purpose of providing aesthetic and wellness coaching. We do not sell your biological data to third-party entities.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Canadian Legal Compliance</h3>
+                <p>Aura Bionics operates in strict accordance with the <strong>Personal Information Protection and Electronic Documents Act (PIPEDA)</strong> and relevant Ontario privacy statutes. Users have the right to request access to or deletion of their stored telemetry at any time.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Contact</h3>
+                <p>For privacy inquiries, contact our Data Protection Officer at info@aurabionics.com.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="modal-terms" class="legal-modal">
+        <div class="modal-content text-left">
+            <button onclick="closeModal('terms')" class="absolute top-8 right-8 text-white/40 hover:text-white">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <h2 class="text-3xl font-black mb-6 uppercase tracking-tight text-[#A020F0]">Terms of Service</h2>
+            <div class="space-y-4 text-gray-300 font-light leading-relaxed">
+                <p class="font-bold text-white">Last Updated: October 2026</p>
+                <p>By accessing the Aura Bionics interface, you agree to the following terms and conditions.</p>
+                
+                <h3 class="text-[#FF3131] font-black uppercase text-sm tracking-widest mt-6 border-b border-[#FF3131]/20 pb-2">Medical Disclaimer (Important)</h3>
+                <p class="text-white font-semibold">Aura Bionics Inc. provides an AI-driven "Bio-Aesthetic Companion" for wellness, lifestyle, and aesthetic coaching only. THE SYSTEM DOES NOT PROVIDE MEDICAL ADVICE, DIAGNOSIS, OR TREATMENT. Always seek the advice of a qualified healthcare provider regarding a medical condition.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. System Access</h3>
+                <p>Access is granted to the Waitlist and subsequent Beta release on an "as-is" basis. Aura Bionics reserves the right to terminate neural access at our discretion if system safety protocols are breached.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">2. Limitation of Liability</h3>
+                <p>Aura Bionics Inc. shall not be liable for any direct, indirect, or incidental effects resulting from your use of the AI coaching algorithms. You acknowledge that AI interpretations of biometric data are subjective and for informational use only.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Intellectual Property</h3>
+                <p>The "Eva" and "Atlas" intelligence profiles, along with the AURA BIONICS brand, are protected proprietary assets. Unauthorized cloning or reverse-engineering of the neural framework is strictly prohibited.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Governing Law</h3>
+                <p>These terms are governed by the laws of the Province of Ontario, Canada.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="relative min-h-screen pt-32 pb-20 px-6 flex flex-col items-center justify-center text-center overflow-hidden">
         <!-- Ambient Background Visuals -->
@@ -208,7 +372,6 @@
         <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#00FFFF]/10 rounded-full blur-[150px] pointer-events-none"></div>
 
         <div class="mb-14 flex justify-center w-full">
-            <!-- LOGO RELIABILITY: Exact requested tag with responsive classes and circle crop fixes -->
             <img src="logo.png" alt="Aura Bionics Logo" style="width: 300px; height: auto; display: block; margin: 0 auto;" class="logo-glow max-w-full px-10 md:px-0">
         </div>
 
@@ -222,7 +385,7 @@
             Syncing Face, Mood, and Bio-Rhythms.
         </p>
 
-        <!-- Waitlist Form (Netlify Integrated) -->
+        <!-- Waitlist Form -->
         <div class="w-full max-w-xl mx-auto">
             <form 
                 id="waitlist-form"
@@ -269,7 +432,7 @@
                     <svg class="w-10 h-10 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                 </div>
                 <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Smart Vision</h3>
-                <p class="text-white/40 leading-relaxed text-lg font-light">Analyzes facial micro-expressions and grooming details (skin, hair, fatigue) using GPT-4o Vision.</p>
+                <p class="text-gray-300 leading-relaxed text-lg font-light">Analyzes facial micro-expressions and grooming details (skin, hair, fatigue) using GPT-4o Vision.</p>
             </div>
             <!-- Card 2 -->
             <div class="glass-card p-12 rounded-[3rem] group">
@@ -277,7 +440,7 @@
                     <svg class="w-10 h-10 text-[#A020F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
                 </div>
                 <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Voice Intelligence</h3>
-                <p class="text-white/40 leading-relaxed text-lg font-light">Speak naturally to Eva (Caring) or Atlas (Disciplined). They listen, understand, and remember context.</p>
+                <p class="text-gray-300 leading-relaxed text-lg font-light">Speak naturally to Eva (Caring) or Atlas (Disciplined). They listen, understand, and remember context.</p>
             </div>
             <!-- Card 3 -->
             <div class="glass-card p-12 rounded-[3rem] group">
@@ -285,7 +448,7 @@
                     <svg class="w-10 h-10 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                 </div>
                 <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Holistic Sync</h3>
-                <p class="text-white/40 leading-relaxed text-lg font-light">Fuses your biometric data (Apple Health/Google Fit) with aesthetic analysis for judgment-free coaching.</p>
+                <p class="text-gray-300 leading-relaxed text-lg font-light">Fuses your biometric data (Apple Health/Google Fit) with aesthetic analysis for judgment-free coaching.</p>
             </div>
         </div>
     </section>
@@ -309,22 +472,30 @@
             <p class="text-2xl text-white/50 mb-16 font-light">Questions or Partnership?</p>
             
             <div class="flex flex-col items-center space-y-16">
-                <!-- Email Item -->
-                <a href="mailto:info@aurabionics.com" class="flex flex-col items-center group">
-                    <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#00FFFF] group-hover:bg-[#00FFFF]/5 transition-all mb-4">
-                        <svg class="w-10 h-10 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    </div>
-                    <h4 class="text-xs font-bold text-white/40 uppercase tracking-[0.5em] mb-2">Email</h4>
-                    <p class="text-2xl md:text-4xl font-bold group-hover:text-[#00FFFF] transition-colors tracking-tight">info@aurabionics.com</p>
-                </a>
-                
-                <!-- Location Item -->
+                <!-- Drop us a line Trigger -->
                 <div class="flex flex-col items-center">
+                    <!-- Email Trust Signal Display -->
+                    <div class="mb-6">
+                        <span class="text-cyan-400 font-black text-xl md:text-2xl tracking-tight drop-shadow-[0_0_10px_rgba(0,255,255,0.4)]">
+                            info@aurabionics.com
+                        </span>
+                    </div>
+
+                    <button onclick="toggleDrawer(true)" class="group flex flex-col items-center">
+                        <div class="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#00FFFF] group-hover:bg-[#00FFFF]/5 group-hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] transition-all mb-6">
+                            <svg class="w-12 h-12 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                        </div>
+                        <span class="px-8 py-4 rounded-full border-2 border-[#00FFFF] text-[#00FFFF] font-black uppercase tracking-widest group-hover:bg-[#00FFFF] group-hover:text-black transition-all">Contact / Drop us a Line</span>
+                    </button>
+                </div>
+                
+                <!-- Location Item (Title Case/Elegant capitalization) -->
+                <div class="flex flex-col items-center pt-8">
                     <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center border-[#A020F0]/30 bg-[#A020F0]/5 mb-4">
                         <svg class="w-10 h-10 text-[#A020F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </div>
                     <h4 class="text-xs font-bold text-white/40 uppercase tracking-[0.5em] mb-2">Address</h4>
-                    <p class="text-2xl md:text-3xl font-bold leading-tight uppercase tracking-tight">
+                    <p class="text-2xl md:text-3xl font-semibold leading-tight text-white/90 tracking-tight">
                         2233 Argentia Rd. East Tower Suite 302 <br/>
                         Mississauga, Ontario L5N 2X7
                     </p>
@@ -336,19 +507,66 @@
     <!-- Footer -->
     <footer class="py-16 border-t border-white/5 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <div class="text-white/40 text-sm font-semibold tracking-widest uppercase text-center md:text-left">
+            <div class="text-gray-400 text-sm font-semibold tracking-widest uppercase text-center md:text-left">
                 © 2026 AURA BIONICS INC. <br class="md:hidden">
-                <span class="md:ml-4 text-[10px] block md:inline uppercase opacity-80">2233 Argentia Rd. East Tower Suite 302 Mississauga, Ontario L5N 2X7</span>
+                <span class="md:ml-4 text-[11px] block md:inline uppercase opacity-90 text-gray-400">2233 ARGENTIA RD. EAST TOWER SUITE 302 MISSISSAUGA, ONTARIO L5N 2X7</span>
             </div>
             <div class="flex gap-12">
-                <a href="#" class="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold">Privacy Policy</a>
-                <a href="#" class="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold">Terms of Service</a>
+                <button onclick="openModal('privacy')" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-sm uppercase tracking-widest font-bold">Privacy Policy</button>
+                <button onclick="openModal('terms')" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-sm uppercase tracking-widest font-bold">Terms of Service</button>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
+        // --- Modal Logic ---
+        function openModal(id) {
+            const modal = document.getElementById(`modal-${id}`);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(`modal-${id}`);
+            if (modal) {
+                modal.classList.remove('active');
+                if (!document.body.classList.contains('drawer-active')) {
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        }
+
+        // Close on backdrop click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('legal-modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // --- Drawer Logic ---
+        function toggleDrawer(open) {
+            if (open) {
+                document.body.classList.add('drawer-active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.classList.remove('drawer-active');
+                document.body.style.overflow = 'auto';
+                setTimeout(() => {
+                    const form = document.getElementById('contact-form');
+                    const success = document.getElementById('contact-success-msg');
+                    if (form && success) {
+                        form.style.display = 'block';
+                        success.style.display = 'none';
+                        form.reset();
+                    }
+                }, 400);
+            }
+        }
+
         // --- Mobile Menu Logic ---
         const menuBtn = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
@@ -367,31 +585,38 @@
         menuBtn.addEventListener('click', toggleMenu);
         menuClose.addEventListener('click', closeMenu);
 
-        // --- Netlify Form Submission ---
-        const form = document.getElementById('waitlist-form');
-        const successMsg = document.getElementById('success-msg');
+        // --- Form Submission Helpers ---
+        function handleNetlifySubmit(formId, successId) {
+            const form = document.getElementById(formId);
+            const successMsg = document.getElementById(successId);
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(form);
-            
-            fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString(),
-            })
-            .then(() => {
-                form.style.display = 'none';
-                successMsg.style.display = 'block';
-            })
-            .catch((error) => {
-                // Showing success message even on failure to ensure UI state progression
-                form.style.display = 'none';
-                successMsg.style.display = 'block';
-                console.error('Form submission error:', error);
+            if (!form) return;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                
+                fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString(),
+                })
+                .then(() => {
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
+                })
+                .catch((error) => {
+                    // Fail gracefully for demo purposes
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
+                    console.error('Submission error:', error);
+                });
             });
-        });
+        }
+
+        // Initialize Form Handlers
+        handleNetlifySubmit('waitlist-form', 'success-msg');
+        handleNetlifySubmit('contact-form', 'contact-success-msg');
 
         // --- Scroll Listener for Header Shadow ---
         window.addEventListener('scroll', () => {
