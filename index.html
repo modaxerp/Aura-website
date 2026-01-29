@@ -30,25 +30,29 @@
             padding: 0;
         }
 
-        /* Heartbeat Animation for Logo */
+        /* Heartbeat Animation for Logo with Circular Box-Shadow */
         @keyframes heartbeat {
             0% { 
                 transform: scale(1); 
-                filter: drop-shadow(0 0 15px rgba(160, 32, 240, 0.6)) drop-shadow(0 0 30px rgba(0, 255, 255, 0.4)); 
+                box-shadow: 0 0 20px rgba(160, 32, 240, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
             }
             50% { 
                 transform: scale(1.05); 
-                filter: drop-shadow(0 0 25px rgba(160, 32, 240, 0.9)) drop-shadow(0 0 50px rgba(0, 255, 255, 0.7)); 
+                box-shadow: 0 0 40px rgba(160, 32, 240, 0.8), 0 0 80px rgba(0, 255, 255, 0.5);
             }
             100% { 
                 transform: scale(1); 
-                filter: drop-shadow(0 0 15px rgba(160, 32, 240, 0.6)) drop-shadow(0 0 30px rgba(0, 255, 255, 0.4)); 
+                box-shadow: 0 0 20px rgba(160, 32, 240, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
             }
         }
 
         .logo-glow {
+            border-radius: 50%; /* Circle Crop */
+            object-fit: cover; /* Prevent stretching */
+            aspect-ratio: 1 / 1; /* Ensure perfect circle */
             animation: heartbeat 3s infinite ease-in-out;
             transition: transform 0.5s ease;
+            background-color: var(--bg-black);
         }
 
         .logo-glow:hover {
@@ -203,7 +207,7 @@
         <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#00FFFF]/10 rounded-full blur-[150px] pointer-events-none"></div>
 
         <div class="mb-14 flex justify-center w-full">
-            <!-- LOGO RELIABILITY: Exact requested tag with responsive classes -->
+            <!-- LOGO RELIABILITY: Exact requested tag with responsive classes and circle crop fixes -->
             <img src="logo.png" alt="Aura Bionics Logo" style="width: 300px; height: auto; display: block; margin: 0 auto;" class="logo-glow max-w-full px-10 md:px-0">
         </div>
 
