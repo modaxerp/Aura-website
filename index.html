@@ -30,19 +30,19 @@
             padding: 0;
         }
 
-        /* Heartbeat Animation for Logo with Circular Box-Shadow */
+        /* Refined 'Breathing from Darkness' Heartbeat Animation */
         @keyframes heartbeat {
             0% { 
                 transform: scale(1); 
-                box-shadow: 0 0 20px rgba(160, 32, 240, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+                box-shadow: 0 0 0 rgba(160, 32, 240, 0), 0 0 0 rgba(0, 255, 255, 0);
             }
             50% { 
                 transform: scale(1.05); 
-                box-shadow: 0 0 40px rgba(160, 32, 240, 0.8), 0 0 80px rgba(0, 255, 255, 0.5);
+                box-shadow: 0 0 50px rgba(160, 32, 240, 0.7), 0 0 100px rgba(0, 255, 255, 0.5);
             }
             100% { 
                 transform: scale(1); 
-                box-shadow: 0 0 20px rgba(160, 32, 240, 0.4), 0 0 40px rgba(0, 255, 255, 0.2);
+                box-shadow: 0 0 0 rgba(160, 32, 240, 0), 0 0 0 rgba(0, 255, 255, 0);
             }
         }
 
@@ -58,6 +58,7 @@
         .logo-glow:hover {
             animation-play-state: paused;
             transform: scale(1.1);
+            box-shadow: 0 0 60px rgba(160, 32, 240, 0.8), 0 0 120px rgba(0, 255, 255, 0.6);
         }
 
         /* Glassmorphism Cards */
