@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA BIONICS | Bio-Aesthetic AI Companion</title>
+    <title>AURA BIONICS | Wellness & Lifestyle Companion</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,13 +68,6 @@
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card:hover {
-            border-color: var(--neon-cyan);
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.06);
-            box-shadow: 0 10px 30px -10px var(--neon-cyan);
         }
 
         /* Legal Modals Styling */
@@ -190,26 +183,6 @@
             pointer-events: auto;
         }
 
-        /* Scrollbar custom */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--neon-purple); }
-
-        ::selection {
-            background: var(--neon-cyan);
-            color: #000;
-        }
-
-        /* Mobile Menu overlay */
-        #mobile-menu {
-            transition: transform 0.4s ease-in-out;
-            transform: translateX(100%);
-        }
-        #mobile-menu.active {
-            transform: translateX(0);
-        }
-
         #success-msg, #contact-success-msg {
             display: none;
             animation: fadeInScale 0.5s ease forwards;
@@ -218,6 +191,14 @@
         @keyframes fadeInScale {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
+        }
+
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
         }
     </style>
 </head>
@@ -231,7 +212,6 @@
             </a>
             
             <div class="hidden md:flex items-center space-x-12">
-                <a href="#features" class="nav-link text-xs tracking-widest uppercase">Features</a>
                 <a href="#mission" class="nav-link text-xs tracking-widest uppercase">Mission</a>
                 <a href="#contact" class="nav-link text-xs tracking-widest uppercase">Contact</a>
             </div>
@@ -249,7 +229,6 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
-            <a href="#features" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Features</a>
             <a href="#mission" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Mission</a>
             <a href="#contact" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Contact</a>
         </div>
@@ -273,30 +252,25 @@
             <input type="hidden" name="form-name" value="contact" />
             <div>
                 <label class="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Name</label>
-                <input type="text" name="name" required class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium" placeholder="Identity Verification...">
+                <input type="text" name="name" required class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium" placeholder="Full Name">
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Email</label>
-                <input type="email" name="email" required class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium" placeholder="Neural Relay Address...">
-            </div>
-            <div>
-                <label class="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Phone (Optional)</label>
-                <input type="tel" name="phone" class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium" placeholder="+1 (000) 000-0000">
+                <input type="email" name="email" required class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium" placeholder="Email Address">
             </div>
             <div>
                 <label class="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Message</label>
-                <textarea name="message" rows="5" required class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium resize-none" placeholder="Transmission content..."></textarea>
+                <textarea name="message" rows="5" required class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium resize-none" placeholder="How can we help?"></textarea>
             </div>
             <div class="pt-6 flex flex-col gap-4">
                 <button type="submit" class="w-full py-5 rounded-2xl glow-btn">Send Message</button>
-                <button type="button" onclick="toggleDrawer(false)" class="w-full py-5 rounded-2xl border border-white/10 text-white/40 hover:text-white hover:bg-white/5 transition-all uppercase tracking-widest font-bold text-sm">Cancel</button>
             </div>
         </form>
 
         <div id="contact-success-msg" class="mt-8 p-8 rounded-2xl border border-[#00FFFF]/50 bg-[#00FFFF]/10 text-[#00FFFF] text-center">
-            <h4 class="text-xl font-black mb-2 uppercase">Signal Received</h4>
-            <p class="font-light">Transmission successfully decrypted. Our agents will respond shortly.</p>
-            <button onclick="toggleDrawer(false)" class="mt-6 text-[#00FFFF] font-bold underline uppercase text-xs tracking-widest">Close System</button>
+            <h4 class="text-xl font-black mb-2 uppercase">Message Received</h4>
+            <p class="font-light">Our team will respond shortly.</p>
+            <button onclick="toggleDrawer(false)" class="mt-6 text-[#00FFFF] font-bold underline uppercase text-xs tracking-widest">Close</button>
         </div>
     </aside>
 
@@ -310,29 +284,14 @@
             <div class="space-y-4 text-gray-100 font-medium text-base leading-relaxed">
                 <p class="font-bold text-white italic">Last Updated: February 2026</p>
                 <p>Aura Bionics Inc. (“Aura Bionics”, “we”, “our”) is a technology company based in Ontario, Canada. We respect your privacy and are committed to protecting your personal information.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. Information We Collect</h3>
-                <p>We may collect limited personal information when you voluntarily provide it, such as:</p>
-                <ul class="list-disc ml-6 space-y-1">
-                    <li>Email address (for waitlist registration, updates, or support requests)</li>
-                    <li>Basic device and usage information for app functionality and analytics</li>
-                </ul>
-                <p>We do not require users to create accounts unless explicitly stated.</p>
-                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. Information Collection</h3>
+                <p>We collect limited personal information when you voluntarily provide it, such as your email address for waitlist registration or support requests. We also collect basic device and usage information for analytics.</p>
                 <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">2. Use of Information</h3>
-                <p>Information collected is used solely to provide access to the Aura Bionics service, communicate updates, and improve app performance. Any visual or audio input is processed only to enable functionality and only with user consent.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Data Processing & Retention</h3>
-                <p>Visual or audio data, when used, is processed transiently and is not retained unless explicitly disclosed. Aura Bionics does not sell personal data to third parties.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. No Medical or Diagnostic Use</h3>
-                <p>Aura Bionics is a wellness and lifestyle technology product intended for informational purposes only. It does not provide medical advice, diagnosis, treatment, or health assessments.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. Legal Compliance</h3>
-                <p>Aura Bionics operates in accordance with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable Ontario privacy laws.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">6. Contact</h3>
-                <p>For privacy inquiries, contact our Data Protection Officer at info@aurabionics.com.</p>
+                <p>Information collected is used solely to provide access to Aura Bionics services, communicate updates, and improve app performance.</p>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Data Security</h3>
+                <p>We process data securely and do not sell personal data to third parties.</p>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Contact</h3>
+                <p>For privacy inquiries, contact us at info@aurabionics.com.</p>
             </div>
         </div>
     </div>
@@ -346,36 +305,20 @@
             <h2 class="text-3xl font-black mb-6 uppercase tracking-tight text-[#A020F0]">Terms of Service</h2>
             <div class="space-y-4 text-gray-100 font-medium text-base leading-relaxed">
                 <p class="font-bold text-white italic">Last Updated: February 2026</p>
-                <p>By accessing or using the Aura Bionics website or mobile application, you agree to the following Terms of Service.</p>
-                
                 <div class="p-4 border border-[#FF3131]/20 bg-[#FF3131]/5 rounded-xl">
-                    <h3 class="text-[#FF3131] font-black uppercase text-sm tracking-widest mb-2">IMPORTANT MEDICAL DISCLAIMER</h3>
-                    <p class="text-white font-semibold">Aura Bionics Inc. provides a wellness and lifestyle technology experience intended for informational and educational purposes only. Aura Bionics does not provide medical advice, diagnosis, treatment, or health assessments. Always seek the advice of a qualified healthcare professional regarding medical concerns.</p>
+                    <h3 class="text-[#FF3131] font-black uppercase text-sm tracking-widest mb-2">IMPORTANT DISCLAIMER</h3>
+                    <p class="text-white font-semibold">Aura Bionics Inc. provides a wellness and lifestyle technology experience intended for informational and educational purposes only. Aura Bionics does not provide medical advice, diagnosis, or treatment.</p>
                 </div>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. Access to the Service</h3>
-                <p>Access is provided on an “as-is” basis. Aura Bionics reserves the right to suspend or terminate access if misuse or security risks are identified.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">2. Use of the Service</h3>
-                <p>Aura Bionics provides AI-assisted wellness insights designed for personal awareness only. All outputs are informational and should not be relied upon as professional or clinical guidance.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Limitation of Liability</h3>
-                <p>To the maximum extent permitted by law, Aura Bionics Inc. shall not be liable for any incidental or consequential damages arising from the use of the Service.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Intellectual Property</h3>
-                <p>All content, software, and branding associated with Aura Bionics are the exclusive property of Aura Bionics Inc. Unauthorized reverse engineering is prohibited.</p>
-
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. Eligibility</h3>
-                <p>Aura Bionics is intended for users who are at least 18 years of age. The Service is not designed for use by minors.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">6. Subscriptions & Payments</h3>
-                <p>Subscriptions are managed through the Apple App Store or Google Play Store. Payments, cancellations, and refunds are governed by the policies of the respective platform. Aura Bionics does not store payment information.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">7. Third-Party Links</h3>
-                <p>The interface may suggest products via third-party links for informational purposes. Aura Bionics Inc. is not responsible for products or services provided by external vendors.</p>
-                
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">8. Governing Law</h3>
-                <p>These Terms are governed by the laws of the Province of Ontario, Canada.</p>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. Service Access</h3>
+                <p>Access is provided on an “as-is” basis. We reserve the right to suspend or terminate access for violations of these Terms.</p>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">2. Use of Service</h3>
+                <p>Aura Bionics insights are designed for personal awareness only. All outputs are informational.</p>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Eligibility</h3>
+                <p>Intended for users at least 18 years of age. Not designed for use by minors.</p>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Payments</h3>
+                <p>Subscriptions are managed through the Apple App Store or Google Play Store.</p>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. Governing Law</h3>
+                <p>These Terms are governed by the laws of Ontario, Canada.</p>
             </div>
         </div>
     </div>
@@ -386,17 +329,18 @@
         <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#00FFFF]/10 rounded-full blur-[150px] pointer-events-none"></div>
 
         <div class="mb-14 flex justify-center w-full">
-            <img src="logo.png" alt="Aura Bionics Logo" style="width: 300px; height: auto; display: block; margin: 0 auto;" class="logo-glow max-w-full px-10 md:px-0">
+            <img src="logo.png" alt="Aura Bionics Logo" style="width: 250px; height: auto;" class="logo-glow">
         </div>
 
         <h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9]">
-            Your Bio-Aesthetic <br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#A020F0] to-[#00FFFF]">AI Companion.</span>
+            AURA <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#A020F0] to-[#00FFFF]">BIONICS</span>
         </h1>
         
-        <p class="text-lg md:text-2xl text-white/60 max-w-3xl mx-auto mb-16 font-light leading-relaxed">
-            Redefining wellness with Neural Perception. <br class="hidden md:block">
-            Harmonizing your biological signal with aesthetic evolution.
+        <p class="text-xl md:text-3xl text-white/80 max-w-3xl mx-auto mb-4 font-bold tracking-tight">
+            Your wellness and lifestyle companion.
+        </p>
+        <p class="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-16 font-light">
+            Early access is limited. Join the waitlist for updates.
         </p>
 
         <div class="w-full max-w-xl mx-auto">
@@ -405,8 +349,11 @@
                 <input type="email" name="email" placeholder="Enter your email address" required class="flex-1 px-8 py-5 rounded-2xl neon-input text-white font-semibold text-lg"/>
                 <button type="submit" class="px-12 py-5 rounded-2xl glow-btn whitespace-nowrap text-lg">Join Waitlist</button>
             </form>
+            <p class="mt-6 text-xs text-white/30 uppercase tracking-widest font-bold">
+                For informational purposes only. Not medical advice.
+            </p>
             <div id="success-msg" class="mt-8 p-8 rounded-2xl border border-[#00FFFF]/50 bg-[#00FFFF]/10 text-[#00FFFF] flex flex-col items-center">
-                <div class="text-xl font-bold tracking-tight mb-6 uppercase">Access Request Received. You are on the list. Stand by for signal.</div>
+                <div class="text-xl font-bold tracking-tight mb-6 uppercase">Access Request Received. Stand by for signal.</div>
                 <button onclick="resetWaitlist()" class="text-xs font-black tracking-[0.3em] uppercase border border-[#00FFFF]/50 px-6 py-2 hover:bg-[#00FFFF] hover:text-black transition-all">
                     [ ACKNOWLEDGE ]
                 </button>
@@ -414,49 +361,12 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
-            <div class="max-w-xl text-left">
-                <h2 class="text-4xl md:text-6xl font-black mb-6 uppercase italic">System Capabilities</h2>
-                <p class="text-white/40 text-xl font-light">Advanced biometric telemetry integrated with aesthetic awareness.</p>
-            </div>
-            <div class="h-px bg-white/10 flex-1 mx-12 hidden md:block mb-6"></div>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <div class="glass-card p-12 rounded-[3rem] group">
-                <div class="w-20 h-20 bg-[#00FFFF]/10 rounded-3xl flex items-center justify-center mb-10 border border-[#00FFFF]/20 group-hover:scale-110 transition-transform">
-                    <svg class="w-10 h-10 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                </div>
-                <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Smart Vision</h3>
-                <p class="text-gray-300 leading-relaxed text-lg font-light">Bio-optic sensors act as a digital mirror, decoding the invisible energy signatures hidden within your reflection.</p>
-            </div>
-            <div class="glass-card p-12 rounded-[3rem] group">
-                <div class="w-20 h-20 bg-[#A020F0]/10 rounded-3xl flex items-center justify-center mb-10 border border-[#A020F0]/20 group-hover:scale-110 transition-transform">
-                    <svg class="w-10 h-10 text-[#A020F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
-                </div>
-                <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Voice Intelligence</h3>
-                <p class="text-gray-300 leading-relaxed text-lg font-light">An adaptive consciousness that listens beyond words. Shifting frequencies between empathetic resonance and disciplined calibration.</p>
-            </div>
-            <div class="glass-card p-12 rounded-[3rem] group">
-                <div class="w-20 h-20 bg-[#00FFFF]/10 rounded-3xl flex items-center justify-center mb-10 border border-[#00FFFF]/20 group-hover:scale-110 transition-transform">
-                    <svg class="w-10 h-10 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                </div>
-                <h3 class="text-3xl font-bold mb-6 italic tracking-tight uppercase">Holistic Sync</h3>
-                <p class="text-gray-300 leading-relaxed text-lg font-light">Seamless integration with your wearable telemetry. Harmonizing biological metrics for judgment-free optimization.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Mission Section -->
     <section id="mission" class="py-32 px-6 bg-[#050505]">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center">
-                <h2 class="text-4xl md:text-7xl font-black mb-16 tracking-tighter uppercase italic">Who We Are</h2>
-                <div class="text-2xl md:text-4xl text-white/90 leading-tight font-extralight italic">
-                    "We are Aura Bionics. Our mission is to bridge the gap between biological data and aesthetic wellness. By leveraging biometric fusion, we provide judgment-free, holistic coaching."
-                </div>
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-6xl font-black mb-12 tracking-tighter uppercase italic">Mission</h2>
+            <div class="text-xl md:text-3xl text-white/90 leading-relaxed font-extralight italic">
+                "Aura Bionics is building a privacy-focused wellness experience designed to support personal awareness and lifestyle reflection."
             </div>
         </div>
     </section>
@@ -464,28 +374,17 @@
     <!-- Contact Section -->
     <section id="contact" class="py-32 px-6 max-w-7xl mx-auto text-center">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase italic">Get in Touch</h2>
-            <p class="text-2xl text-white/50 mb-16 font-light">Questions or Partnership?</p>
+            <h2 class="text-5xl md:text-7xl font-black mb-16 tracking-tighter uppercase italic text-transparent bg-clip-text bg-gradient-to-r from-[#A020F0] to-[#00FFFF]">Contact</h2>
             
             <div class="flex flex-col items-center space-y-16">
                 <div class="flex flex-col items-center">
-                    <div class="mb-6">
-                        <span class="text-cyan-400 font-black text-xl md:text-2xl tracking-tight drop-shadow-[0_0_10px_rgba(0,255,255,0.4)]">info@aurabionics.com</span>
-                    </div>
-                    <button onclick="toggleDrawer(true)" class="group flex flex-col items-center">
-                        <div class="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-[#00FFFF] group-hover:bg-[#00FFFF]/5 group-hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] transition-all mb-6">
-                            <svg class="w-12 h-12 text-[#00FFFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
-                        </div>
-                        <span class="px-8 py-4 rounded-full border-2 border-[#00FFFF] text-[#00FFFF] font-black uppercase tracking-widest group-hover:bg-[#00FFFF] group-hover:text-black transition-all">Contact / Drop us a Line</span>
-                    </button>
+                    <span class="text-cyan-400 font-black text-xl md:text-2xl tracking-tight mb-8">info@aurabionics.com</span>
+                    <button onclick="toggleDrawer(true)" class="px-8 py-4 rounded-full border-2 border-[#00FFFF] text-[#00FFFF] font-black uppercase tracking-widest hover:bg-[#00FFFF] hover:text-black transition-all">Drop us a Line</button>
                 </div>
                 
-                <div class="flex flex-col items-center pt-8">
-                    <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center border-[#A020F0]/30 bg-[#A020F0]/5 mb-4">
-                        <svg class="w-10 h-10 text-[#A020F0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    </div>
-                    <h4 class="text-xs font-bold text-white/40 uppercase tracking-[0.5em] mb-2">Address</h4>
-                    <p class="text-2xl md:text-3xl font-semibold leading-tight text-white/90 tracking-tight">
+                <div class="flex flex-col items-center pt-8 opacity-50">
+                    <h4 class="text-xs font-bold text-white/40 uppercase tracking-[0.5em] mb-4">Aura Bionics Inc.</h4>
+                    <p class="text-lg md:text-xl font-medium leading-tight text-white/90">
                         2233 Argentia Rd. East Tower Suite 302 <br/>
                         Mississauga, Ontario L5N 2X7
                     </p>
@@ -497,13 +396,12 @@
     <!-- Footer -->
     <footer class="py-16 border-t border-white/5 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <div class="text-gray-400 text-sm font-semibold tracking-widest uppercase text-center md:text-left">
-                © 2026 AURA BIONICS INC. <br class="md:hidden">
-                <span class="md:ml-4 text-[11px] block md:inline uppercase opacity-90 text-gray-400">2233 ARGENTIA RD. EAST TOWER SUITE 302 MISSISSAUGA, ONTARIO L5N 2X7</span>
+            <div class="text-gray-400 text-sm font-semibold tracking-widest uppercase">
+                © 2026 AURA BIONICS INC.
             </div>
             <div class="flex gap-12">
-                <button onclick="openModal('privacy')" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-sm uppercase tracking-widest font-bold">Privacy Policy</button>
-                <button onclick="openModal('terms')" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-sm uppercase tracking-widest font-bold">Terms of Service</button>
+                <button onclick="openModal('privacy')" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-xs uppercase tracking-widest font-bold">Privacy Policy</button>
+                <button onclick="openModal('terms')" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-xs uppercase tracking-widest font-bold">Terms of Service</button>
             </div>
         </div>
     </footer>
@@ -612,9 +510,7 @@
             if (nav) {
                 if (window.scrollY > 50) {
                     nav.classList.add('bg-black/95');
-                    nav.classList.remove('bg-black/90');
                 } else {
-                    nav.classList.add('bg-black/90');
                     nav.classList.remove('bg-black/95');
                 }
             }
