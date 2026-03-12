@@ -248,8 +248,7 @@
             </button>
         </div>
 
-        <form id="contact-form" name="contact" method="POST" data-netlify="true" class="space-y-6">
-            <input type="hidden" name="form-name" value="contact" />
+        <form id="contact-form" name="contact" method="POST" action="/api/contact" class="space-y-6">
             <div>
                 <label class="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Name</label>
                 <input type="text" name="name" required class="w-full px-6 py-4 rounded-xl neon-input text-white font-medium" placeholder="Full Name">
@@ -372,8 +371,7 @@
         </p>
 
         <div class="w-full max-w-xl mx-auto">
-            <form id="waitlist-form" name="waitlist" method="POST" data-netlify="true" class="flex flex-col sm:flex-row gap-5">
-                <input type="hidden" name="form-name" value="waitlist" />
+            <form id="waitlist-form" name="waitlist" method="POST" action="/api/waitlist" class="flex flex-col sm:flex-row gap-5">
                 <input type="email" name="email" placeholder="Enter your email address" required class="flex-1 px-8 py-5 rounded-2xl neon-input text-white font-semibold text-lg"/>
                 <button type="submit" class="px-12 py-5 rounded-2xl glow-btn whitespace-nowrap text-lg">Join Waitlist</button>
             </form>
@@ -498,25 +496,34 @@
         if(menuBtn) menuBtn.addEventListener('click', toggleMenu);
         if(menuClose) menuClose.addEventListener('click', closeMenu);
 
-        function handleNetlifySubmit(formId, successId) {
+        function handleResendSubmit(formId, successId, apiPath) {
             const form = document.getElementById(formId);
             const successMsg = document.getElementById(successId);
             if (!form) return;
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(form);
-                fetch("/", {
+                const submitBtn = form.querySelector('button[type="submit"]');
+                if (submitBtn) submitBtn.disabled = true;
+                fetch(apiPath, {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: new URLSearchParams(formData).toString(),
+                })
+                .then(res => {
+                    if (!res.ok) throw new Error('Submission failed');
+                    return res.json();
                 })
                 .then(() => {
                     form.style.display = 'none';
                     successMsg.style.display = 'flex';
                 })
-                .catch(() => {
-                    form.style.display = 'none';
-                    successMsg.style.display = 'flex';
+                .catch(err => {
+                    console.error(err);
+                    alert('Something went wrong. Please try again or email us at info@aurabionics.com');
+                })
+                .finally(() => {
+                    if (submitBtn) submitBtn.disabled = false;
                 });
             });
         }
@@ -531,8 +538,8 @@
             }
         }
 
-        handleNetlifySubmit('waitlist-form', 'success-msg');
-        handleNetlifySubmit('contact-form', 'contact-success-msg');
+        handleResendSubmit('waitlist-form', 'success-msg', '/api/waitlist');
+        handleResendSubmit('contact-form', 'contact-success-msg', '/api/contact');
 
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
