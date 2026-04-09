@@ -208,11 +208,12 @@
     <!-- Sticky Navbar -->
     <nav class="fixed top-0 left-0 w-full z-[100] bg-black/90 backdrop-blur-xl border-b border-white/10 h-20">
         <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-            <a href="#" class="text-xl md:text-2xl font-black tracking-tighter uppercase">
+            <a href="/" class="text-xl md:text-2xl font-black tracking-tighter uppercase">
                 AURA <span class="text-[#00FFFF]">BIONICS</span>
             </a>
             
             <div class="hidden md:flex items-center space-x-12">
+                <a href="aura/" class="nav-link text-xs tracking-widest uppercase">App</a>
                 <a href="#mission" class="nav-link text-xs tracking-widest uppercase">Mission</a>
                 <a href="#contact" class="nav-link text-xs tracking-widest uppercase">Contact</a>
             </div>
@@ -230,6 +231,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
+            <a href="aura/" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">App</a>
             <a href="#mission" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Mission</a>
             <a href="#contact" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Contact</a>
         </div>
@@ -282,7 +284,7 @@
             </button>
             <h2 class="text-3xl font-black mb-6 uppercase tracking-tight text-[#00FFFF]">Privacy Policy</h2>
             <div class="space-y-4 text-gray-100 font-medium text-base leading-relaxed">
-                <p class="font-bold text-white italic">Last Updated: January 2026</p>
+                <p class="font-bold text-white italic">Last Updated: April 2026</p>
                 <p>Aura Bionics Inc. (“Aura Bionics”, “we”, “our”) is a technology company based in Ontario, Canada. We respect your privacy and are committed to protecting your personal information.</p>
                 
                 <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. Information We Collect</h3>
@@ -292,18 +294,21 @@
                 <p>Information collected is used solely to provide access to the Aura Bionics service, communicate updates, and improve app performance. Any visual or audio input used by the application is processed only to enable app functionality and only with user consent.</p>
                 
                 <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Data Processing & Retention</h3>
-                <p>Visual or audio data, when used, is processed transiently and is not retained unless explicitly disclosed within the application. Aura Bionics does not sell personal data to third parties.</p>
+                <p>Scan images may be stored securely in the user’s private account to enable the Photo Journey feature. Audio input is transcribed and not stored as audio. Aura Bionics does not sell personal data to third parties.</p>
                 
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. No Medical or Diagnostic Use</h3>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Third-Party Services</h3>
+                <p>We use the following third-party services to provide app functionality: Firebase (Google), Anthropic (Claude API), OpenAI (GPT-4o, Whisper), ElevenLabs, and fal.ai. These services process data solely to enable app features and are subject to their own privacy policies.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. No Medical or Diagnostic Use</h3>
                 <p>Aura Bionics is a wellness and lifestyle technology product intended for informational purposes only. It does not provide medical advice, diagnosis, treatment, or health assessments.</p>
                 
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. Legal Compliance</h3>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">6. Legal Compliance</h3>
                 <p>Aura Bionics operates in accordance with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable Ontario privacy laws.</p>
                 
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">6. Your Rights</h3>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">7. Your Rights</h3>
                 <p>Users may request access to or deletion of their personal information by contacting us.</p>
                 
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">7. Contact</h3>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">8. Contact</h3>
                 <p>For privacy-related questions or requests, please contact: info@aurabionics.com</p>
             </div>
         </div>
@@ -317,7 +322,7 @@
             </button>
             <h2 class="text-3xl font-black mb-6 uppercase tracking-tight text-[#A020F0]">Terms of Service</h2>
             <div class="space-y-4 text-gray-100 font-medium text-base leading-relaxed">
-                <p class="font-bold text-white italic">Last Updated: January 2026</p>
+                <p class="font-bold text-white italic">Last Updated: April 2026</p>
                 
                 <div class="p-4 border border-[#FF3131]/20 bg-[#FF3131]/5 rounded-xl">
                     <h3 class="text-[#FF3131] font-black uppercase text-sm tracking-widest mb-2">IMPORTANT MEDICAL DISCLAIMER</h3>
@@ -330,22 +335,25 @@
                 <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">2. Use of the Service</h3>
                 <p>Aura Bionics provides AI-assisted wellness insights designed to support personal awareness and lifestyle reflection only. All outputs are informational and should not be relied upon as professional or clinical guidance.</p>
                 
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Limitation of Liability</h3>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Inner Circle & User Content</h3>
+                <p>Users may share messages and wellness content within Inner Circle features. This content is stored securely and is not shared outside the user’s designated connections.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Limitation of Liability</h3>
                 <p>To the maximum extent permitted by law, Aura Bionics Inc. shall not be liable for any indirect, incidental, or consequential damages arising from the use of the Service. The Service is provided without warranties of any kind.</p>
                 
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Intellectual Property</h3>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. Intellectual Property</h3>
                 <p>All content, software, branding, and system logic associated with Aura Bionics are the exclusive property of Aura Bionics Inc. Unauthorized copying, modification, or reverse engineering is prohibited.</p>
                 
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. Eligibility</h3>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">6. Eligibility</h3>
                 <p>Aura Bionics is intended for users who are at least 18 years of age (or the age of majority in their jurisdiction). The Service is not designed for use by minors.</p>
                 
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">6. Subscriptions & Payments</h3>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">7. Subscriptions & Payments</h3>
                 <p>Subscriptions are managed through the Apple App Store or Google Play Store. Payments, cancellations, and refunds are governed by the policies of the platform from which the application was downloaded. Aura Bionics does not store payment information.</p>
                 
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">7. Third-Party Links</h3>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">8. Third-Party Links</h3>
                 <p>The Service may include links to third-party websites or services for informational purposes. Aura Bionics Inc. is not responsible for the content, products, or services provided by third parties.</p>
                 
-                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">8. Governing Law</h3>
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">9. Governing Law</h3>
                 <p>These Terms are governed by the laws of the Province of Ontario, Canada.</p>
             </div>
         </div>
@@ -443,6 +451,8 @@
                 document.body.style.overflow = 'hidden';
             }
         }
+        if (window.location.hash === '#privacy') document.addEventListener('DOMContentLoaded', () => openModal('privacy'));
+        if (window.location.hash === '#terms') document.addEventListener('DOMContentLoaded', () => openModal('terms'));
 
         function closeModal(id) {
             const modal = document.getElementById(`modal-${id}`);
