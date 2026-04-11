@@ -379,9 +379,13 @@
 
     const contentEl = document.getElementById('content');
 
-    // App Store links — update with real URLs after launch
-    const APP_STORE_URL = 'https://apps.apple.com/app/aura-bionics/id6742598195';
-    const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.aurabionics.auraBionics';
+    // Pre-launch: both store buttons point to the main landing page,
+    // which handles the waitlist / coming-soon messaging. Swap these
+    // two constants on launch day — nothing else needs to change.
+    //   iOS  : https://apps.apple.com/app/aura-bionics/id<REAL_ID>
+    //   Play : https://play.google.com/store/apps/details?id=com.aurabionics.aura_bionics
+    const APP_STORE_URL = 'https://aurabionics.com';
+    const PLAY_STORE_URL = 'https://aurabionics.com';
 
     async function loadInvite() {
       if (!token || token === 'circle') {
