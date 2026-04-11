@@ -45,13 +45,16 @@
     }
 
     .orb {
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       margin: 0 auto 32px;
       background: url('/circle/aura-orb.jpg') center/contain no-repeat;
-      /* image is already on a black background, so it blends into the
-         page without needing a mask. the breathing animation gives it
-         subtle life without distracting from the artwork. */
+      /* The source JPEG has a pure black square background. `screen`
+         blend mode makes black pixels blend additively with whatever
+         is behind them (body + bg-glow), so the square vanishes and
+         only the neon ring + waveform + sparkles remain visible —
+         matching the look in the mobile app. */
+      mix-blend-mode: screen;
       animation: breathe 4s ease-in-out infinite;
     }
 
