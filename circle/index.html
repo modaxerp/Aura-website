@@ -48,13 +48,18 @@
       width: 160px;
       height: 160px;
       margin: 0 auto 32px;
-      background: url('/circle/aura-orb.jpg') center/contain no-repeat;
-      /* The source JPEG has a pure black square background. `screen`
-         blend mode makes black pixels blend additively with whatever
-         is behind them (body + bg-glow), so the square vanishes and
-         only the neon ring + waveform + sparkles remain visible —
-         matching the look in the mobile app. */
-      mix-blend-mode: screen;
+      background: url('/circle/aura-orb.jpg') center / contain no-repeat;
+      /* JPEG has a black square; luminance mask knocks out dark pixels so
+         only the glow/orb paints (works reliably on iOS; screen blend often doesn't). */
+      -webkit-mask-image: url('/circle/aura-orb.jpg');
+      -webkit-mask-size: contain;
+      -webkit-mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+      mask-image: url('/circle/aura-orb.jpg');
+      mask-size: contain;
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-mode: luminance;
       animation: breathe 4s ease-in-out infinite;
     }
 
