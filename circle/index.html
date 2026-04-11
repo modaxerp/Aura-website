@@ -45,18 +45,19 @@
     }
 
     .orb {
-      width: 72px;
-      height: 72px;
+      width: 140px;
+      height: 140px;
       margin: 0 auto 32px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 40% 40%, #00F0FF, #6C63FF);
-      box-shadow: 0 0 40px rgba(0,240,255,0.25);
-      animation: pulse 3s ease-in-out infinite;
+      background: url('/circle/aura-orb.jpg') center/contain no-repeat;
+      /* image is already on a black background, so it blends into the
+         page without needing a mask. the breathing animation gives it
+         subtle life without distracting from the artwork. */
+      animation: breathe 4s ease-in-out infinite;
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(0,240,255,0.25); }
-      50% { transform: scale(1.05); box-shadow: 0 0 60px rgba(0,240,255,0.35); }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 24px rgba(120,80,255,0.35)); }
+      50%      { transform: scale(1.03); filter: drop-shadow(0 0 40px rgba(120,80,255,0.55)); }
     }
 
     .brand {
