@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Inner Circle Invite</title>
+  <meta name="description" content="You've been invited to join an Inner Circle on Aura Bionics">
+  <meta property="og:title" content="You're invited to Aura Inner Circle">
+  <meta property="og:description" content="Join a small, safe wellness circle where you support each other.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .bg-glow {
+      position: fixed;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,240,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      width: 100%;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .orb {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 32px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, #00F0FF, #6C63FF);
+      box-shadow: 0 0 40px rgba(0,240,255,0.25);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(0,240,255,0.25); }
+      50% { transform: scale(1.05); box-shadow: 0 0 60px rgba(0,240,255,0.35); }
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 40px 28px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .invite-text {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .invite-text .name {
+      color: #00F0FF;
+    }
+
+    .description {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .countdown {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,240,255,0.08);
+      border: 1px solid rgba(0,240,255,0.15);
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 13px;
+      color: #00F0FF;
+      margin-bottom: 32px;
+    }
+
+    .countdown svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      background: linear-gradient(135deg, #00F0FF, #00C4D4);
+      color: #000;
+      box-shadow: 0 8px 24px rgba(0,240,255,0.25);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,240,255,0.35);
+    }
+
+    .secondary-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .secondary-btn:hover {
+      border-color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Expired state */
+    .expired .invite-text { color: rgba(255,255,255,0.5); }
+    .expired .countdown { background: rgba(255,100,100,0.1); border-color: rgba(255,100,100,0.2); color: #ff6b6b; }
+
+    /* Loading state */
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #00F0FF;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .error-text {
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 4px;
+      font-size: 12px;
+    }
+
+    .lang-switch button {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.4);
+      padding: 4px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-switch button.active {
+      color: #00F0FF;
+      border-color: rgba(0,240,255,0.4);
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <div class="lang-switch">
+    <button id="lang-en" onclick="setLang('en')">EN</button>
+    <button id="lang-tr" onclick="setLang('tr')">TR</button>
+  </div>
+
+  <div class="container">
+    <div class="orb"></div>
+    <div class="brand">AURA</div>
+
+    <div id="content">
+      <div class="loading">
+        <div class="spinner"></div>
+        <p class="error-text" id="loading-text">Loading invite...</p>
+      </div>
+    </div>
+
+    <p class="footer">aurabionics.app</p>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    // ═══════════════════════════════════════════════════════════
+    // FIREBASE CONFIG
+    // ═══════════════════════════════════════════════════════════
+    // Web app registered in Firebase Console → aura-bionics.
+    // These values are PUBLIC and safe to commit — Firestore
+    // security is enforced by firestore.rules, not by hiding
+    // the apiKey.
+    // ═══════════════════════════════════════════════════════════
+    const firebaseConfig = {
+      apiKey: "AIzaSyApIgRMDQX2jc6yEhcQXW-mm8Rj1YlWRjY",
+      authDomain: "aura-bionics.firebaseapp.com",
+      projectId: "aura-bionics",
+      storageBucket: "aura-bionics.firebasestorage.app",
+      messagingSenderId: "1083654289151",
+      appId: "1:1083654289151:web:57c0c0e3c99e2c5f097eca",
+      measurementId: "G-LJM7X124XL",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // ═══════════════════════════════════════════════════════════
+    // LOCALIZATION (TR / EN)
+    // ═══════════════════════════════════════════════════════════
+    const I18N = {
+      en: {
+        loading: "Loading invite...",
+        invitedYou: (name) => `<span class="name">${name}</span> invited you to their Inner Circle.`,
+        someoneInvited: `<span class="name">Someone</span> invited you to their Inner Circle.`,
+        whatIsInnerCircle: "Inner Circle is a small, safe space on Aura where you support each other's wellness. Eva works for both of you.",
+        timeLeft: (t) => `${t} left`,
+        days: (n) => n === 1 ? '1 day' : `${n} days`,
+        hours: (n) => n === 1 ? '1 hour' : `${n} hours`,
+        lessThanHour: "Less than 1 hour",
+        joinDownload: "Join — Download Aura",
+        notNow: "Not now",
+        linkSaved: "Link saved — come back anytime within 7 days",
+        expired: "This invite has expired.",
+        notAvailable: "This invite is no longer available.",
+        butStillWaiting: (name) => `But <span class="name">${name}</span> might still be waiting for you.`,
+        butStillWaitingAnon: `But they might still be waiting for you.`,
+        downloadAura: "Download Aura",
+        alreadyAccepted: "This invite has already been accepted!",
+        alreadyConnected: "You're already connected. Open Aura to start chatting.",
+        openAura: "Open Aura",
+        somethingWrong: "Something went wrong. Please try again.",
+        invalidLink: "Invalid invite link.",
+        doesntExist: "This invite doesn't exist.",
+        wantToLearnMore: "Want to learn more about Aura?",
+        visitSite: "Visit aurabionics.app",
+      },
+      tr: {
+        loading: "Davet yükleniyor...",
+        invitedYou: (name) => `<span class="name">${name}</span> seni özel çevresine davet etti.`,
+        someoneInvited: `<span class="name">Biri</span> seni özel çevresine davet etti.`,
+        whatIsInnerCircle: "Inner Circle — Aura'da birbirinizi destekleyen küçük ve güvenli bir çevre. Eva sizin için çalışır.",
+        timeLeft: (t) => `${t} kaldı`,
+        days: (n) => `${n} gün`,
+        hours: (n) => `${n} saat`,
+        lessThanHour: "1 saatten az",
+        joinDownload: "Katıl — Uygulamayı İndir",
+        notNow: "Şimdi Değil",
+        linkSaved: "Link kaydedildi — 7 gün içinde istediğin zaman dönebilirsin",
+        expired: "Bu davet süresi doldu.",
+        notAvailable: "Bu davet artık geçerli değil.",
+        butStillWaiting: (name) => `Ama <span class="name">${name}</span> hâlâ seni bekliyor olabilir. 💚`,
+        butStillWaitingAnon: `Ama hâlâ seni bekliyor olabilirler. 💚`,
+        downloadAura: "Uygulamayı İndir",
+        alreadyAccepted: "Bu davet zaten kabul edilmiş!",
+        alreadyConnected: "Zaten bağlısınız. Sohbete başlamak için Aura'yı aç.",
+        openAura: "Aura'yı Aç",
+        somethingWrong: "Bir şeyler ters gitti. Lütfen tekrar dene.",
+        invalidLink: "Geçersiz davet linki.",
+        doesntExist: "Bu davet mevcut değil.",
+        wantToLearnMore: "Aura hakkında daha fazlasını mı öğrenmek istiyorsun?",
+        visitSite: "aurabionics.app'i ziyaret et",
+      },
+    };
+
+    // Detect language: URL param > stored > browser > default EN
+    function detectLang() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get('lang');
+      if (urlLang && I18N[urlLang]) return urlLang;
+      try {
+        const stored = localStorage.getItem('aura_lang');
+        if (stored && I18N[stored]) return stored;
+      } catch (e) { /* localStorage disabled */ }
+      const browserLang = (navigator.language || 'en').toLowerCase();
+      if (browserLang.startsWith('tr')) return 'tr';
+      return 'en';
+    }
+
+    let currentLang = detectLang();
+    let t = I18N[currentLang];
+    let currentInviteData = null;
+
+    window.setLang = function(lang) {
+      if (!I18N[lang]) return;
+      currentLang = lang;
+      t = I18N[currentLang];
+      try { localStorage.setItem('aura_lang', lang); } catch (e) { /* ignore */ }
+      document.documentElement.lang = lang;
+      updateLangSwitch();
+      // Re-render current state with new language
+      if (currentInviteData) {
+        renderInvite(currentInviteData);
+      } else {
+        document.getElementById('loading-text').textContent = t.loading;
+      }
+    };
+
+    function updateLangSwitch() {
+      document.getElementById('lang-en').classList.toggle('active', currentLang === 'en');
+      document.getElementById('lang-tr').classList.toggle('active', currentLang === 'tr');
+    }
+
+    // Initial language setup
+    document.documentElement.lang = currentLang;
+    document.getElementById('loading-text').textContent = t.loading;
+    updateLangSwitch();
+
+    // ═══════════════════════════════════════════════════════════
+    // INVITE LOADING + RENDERING
+    // ═══════════════════════════════════════════════════════════
+    // Extract token from URL path: /circle/{token}
+    const pathParts = window.location.pathname.split('/').filter(p => p);
+    const token = pathParts[pathParts.length - 1];
+
+    const contentEl = document.getElementById('content');
+
+    // App Store links — update with real URLs after launch
+    const APP_STORE_URL = 'https://apps.apple.com/app/aura-bionics/id6742598195';
+    const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.aurabionics.auraBionics';
+
+    async function loadInvite() {
+      if (!token || token === 'circle') {
+        currentInviteData = { state: 'error', message: t.invalidLink };
+        renderInvite(currentInviteData);
+        return;
+      }
+
+      try {
+        const inviteRef = doc(db, 'invites', token);
+        const inviteSnap = await getDoc(inviteRef);
+
+        if (!inviteSnap.exists()) {
+          currentInviteData = { state: 'error', message: 'doesntExist' };
+          renderInvite(currentInviteData);
+          return;
+        }
+
+        const data = inviteSnap.data();
+        const status = data.status;
+        const expiresAt = data.expires_at?.toDate();
+        const inviterName = data.invited_by_name;
+        const now = new Date();
+
+        if (status === 'accepted') {
+          currentInviteData = { state: 'accepted', inviterName };
+        } else if (status === 'rejected' || status === 'cancelled') {
+          currentInviteData = { state: 'expired', inviterName, reason: 'notAvailable' };
+        } else if (expiresAt && now > expiresAt) {
+          currentInviteData = { state: 'expired', inviterName, reason: 'expired' };
+        } else {
+          currentInviteData = { state: 'active', inviterName, expiresAt };
+        }
+
+        renderInvite(currentInviteData);
+      } catch (e) {
+        console.error('Error loading invite:', e);
+        currentInviteData = { state: 'error', message: 'somethingWrong' };
+        renderInvite(currentInviteData);
+      }
+    }
+
+    function renderInvite(data) {
+      switch (data.state) {
+        case 'active': return showActive(data.inviterName, data.expiresAt);
+        case 'expired': return showExpired(data.inviterName, data.reason);
+        case 'accepted': return showAccepted(data.inviterName);
+        case 'error': return showError(data.message);
+      }
+    }
+
+    function showActive(inviterName, expiresAt) {
+      const nameHtml = inviterName
+        ? t.invitedYou(escapeHtml(inviterName))
+        : t.someoneInvited;
+      const timeLeft = getTimeLeft(expiresAt);
+
+      contentEl.innerHTML = `
+        <div class="card">
+          <p class="invite-text">${nameHtml}</p>
+          <p class="description">${t.whatIsInnerCircle}</p>
+          <div class="countdown">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+            ${t.timeLeft(timeLeft)}
+          </div>
+          <a href="${getStoreLink()}" class="cta-btn">${t.joinDownload}</a>
+          <a href="javascript:void(0)" class="secondary-btn" onclick="showNotNow()">${t.notNow}</a>
+        </div>
+      `;
+    }
+
+    function showExpired(inviterName, reasonKey) {
+      const message = reasonKey === 'expired' ? t.expired : t.notAvailable;
+      const waitingHtml = inviterName
+        ? t.butStillWaiting(escapeHtml(inviterName))
+        : t.butStillWaitingAnon;
+
+      contentEl.innerHTML = `
+        <div class="card expired">
+          <p class="invite-text">${message}</p>
+          <p class="description">${waitingHtml}</p>
+          <a href="${getStoreLink()}" class="cta-btn" style="background: rgba(255,255,255,0.1); color: #fff; box-shadow: none;">
+            ${t.downloadAura}
+          </a>
+        </div>
+      `;
+    }
+
+    function showAccepted(inviterName) {
+      contentEl.innerHTML = `
+        <div class="card">
+          <p class="invite-text">${t.alreadyAccepted}</p>
+          <p class="description">${t.alreadyConnected}</p>
+          <a href="${getStoreLink()}" class="cta-btn">${t.openAura}</a>
+        </div>
+      `;
+    }
+
+    function showError(messageKeyOrText) {
+      const message = t[messageKeyOrText] || messageKeyOrText || t.somethingWrong;
+      contentEl.innerHTML = `
+        <div class="card">
+          <p class="invite-text" style="font-size: 18px;">${message}</p>
+          <p class="description">${t.wantToLearnMore}</p>
+          <a href="https://aurabionics.app" class="secondary-btn">${t.visitSite}</a>
+        </div>
+      `;
+    }
+
+    window.showNotNow = function() {
+      const btn = contentEl.querySelector('.secondary-btn');
+      if (!btn) return;
+      btn.textContent = t.linkSaved;
+      btn.style.color = 'rgba(0,240,255,0.5)';
+      btn.style.pointerEvents = 'none';
+    };
+
+    function getTimeLeft(expiresAt) {
+      if (!expiresAt) return t.days(7);
+      const now = new Date();
+      const diff = expiresAt - now;
+      if (diff <= 0) return t.lessThanHour;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      if (days > 0 && hours > 0) return `${t.days(days)} ${hours}h`;
+      if (days > 0) return t.days(days);
+      if (hours > 0) return t.hours(hours);
+      return t.lessThanHour;
+    }
+
+    function getStoreLink() {
+      const ua = navigator.userAgent.toLowerCase();
+      if (/iphone|ipad|ipod/.test(ua)) return APP_STORE_URL;
+      if (/android/.test(ua)) return PLAY_STORE_URL;
+      return APP_STORE_URL;
+    }
+
+    function escapeHtml(text) {
+      if (text == null) return '';
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Load on page ready
+    loadInvite();
+  </script>
+</body>
+</html>
