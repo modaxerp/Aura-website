@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Aura Bionics</title>
+    <meta name="description" content="Privacy Policy for Aura Bionics Inc. — how we collect, use, and protect your personal information.">
+    <link rel="canonical" href="https://aurabionics.com/privacy/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --neon-purple: #A020F0;
+            --neon-cyan: #00FFFF;
+            --bg-black: #000000;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-black);
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .modal-content {
+            max-width: 800px;
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+        .neon-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+        .glow-btn {
+            border: 2px solid var(--neon-purple);
+            color: var(--neon-purple);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 800;
+        }
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #ffffff; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-cyan);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.active { transform: translateX(0); }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="fixed top-0 left-0 w-full z-[100] bg-black/90 backdrop-blur-xl border-b border-white/10 h-20">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <a href="/" class="text-xl md:text-2xl font-black tracking-tighter uppercase">
+                AURA <span class="text-[#00FFFF]">BIONICS</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-12">
+                <a href="/aura/" class="nav-link text-xs tracking-widest uppercase">App</a>
+                <a href="/#mission" class="nav-link text-xs tracking-widest uppercase">Mission</a>
+                <a href="/#contact" class="nav-link text-xs tracking-widest uppercase">Contact</a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-white p-2" type="button" aria-label="Open menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="fixed top-0 right-0 w-full h-screen bg-black z-[101] flex flex-col items-center justify-center space-y-12">
+            <button id="menu-close" class="absolute top-6 right-6 text-white" type="button" aria-label="Close menu">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="/aura/" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">App</a>
+            <a href="/#mission" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Mission</a>
+            <a href="/#contact" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 min-h-screen">
+        <div class="modal-content text-left mx-auto">
+            <h1 class="text-3xl font-black mb-6 uppercase tracking-tight text-[#00FFFF]">Privacy Policy</h1>
+            <div class="space-y-4 text-gray-100 font-medium text-base leading-relaxed">
+                <p class="font-bold text-white italic">Last Updated: April 9, 2026</p>
+                <p>Aura Bionics Inc. (“Aura Bionics”, “we”, “our”) is a technology company based in Ontario, Canada. We respect your privacy and are committed to protecting your personal information.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. Information We Collect</h3>
+                <p>We may collect limited personal information when you voluntarily provide it, such as your email address for waitlist registration, updates, or support requests. We also collect basic device and usage information for app functionality and analytics. Users create an account to access app features. Account information including email address is stored securely.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">2. Use of Information</h3>
+                <p>Information collected is used solely to provide access to the Aura Bionics service, communicate updates, and improve app performance. Any visual or audio input used by the application is processed only to enable app functionality and only with user consent.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Data Processing & Retention</h3>
+                <p>Scan images may be stored securely in the user’s private account to enable the Photo Journey feature. Audio input is transcribed and not stored as audio. Audio transcription is processed via OpenAI Whisper API and is subject to OpenAI’s data policies. Aura Bionics does not sell personal data to third parties.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Third-Party Services</h3>
+                <p>We use the following third-party services to provide app functionality: Firebase (Google), Anthropic (Claude API), OpenAI (GPT-4o, Whisper), ElevenLabs, and fal.ai. These services process data solely to enable app features and are subject to their own privacy policies.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. No Medical or Diagnostic Use</h3>
+                <p>Aura Bionics is a wellness and lifestyle technology product intended for informational purposes only. It does not provide medical advice, diagnosis, treatment, or health assessments.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">6. Legal Compliance</h3>
+                <p>Aura Bionics operates in accordance with the Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable Ontario privacy laws.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">7. Your Rights</h3>
+                <p>Users may request access to or deletion of their personal information by contacting us.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">8. Contact</h3>
+                <p>For privacy-related questions or requests, please contact: info@aurabionics.com</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-16 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-gray-400 text-sm font-semibold tracking-widest uppercase">
+                © 2026 AURA BIONICS INC.
+            </div>
+            <div class="flex gap-12">
+                <a href="/privacy/" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-xs uppercase tracking-widest font-bold">Privacy Policy</a>
+                <a href="/terms/" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-xs uppercase tracking-widest font-bold">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+        if (menuClose) menuClose.addEventListener('click', closeMenu);
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (nav) {
+                if (window.scrollY > 50) nav.classList.add('bg-black/95');
+                else nav.classList.remove('bg-black/95');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Aura Bionics</title>
+    <meta name="description" content="Terms of Service for Aura Bionics Inc. — access, use, and limitations of the Aura wellness companion.">
+    <link rel="canonical" href="https://aurabionics.com/terms/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --neon-purple: #A020F0;
+            --neon-cyan: #00FFFF;
+            --bg-black: #000000;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-black);
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .modal-content {
+            max-width: 800px;
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #ffffff; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-cyan);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.active { transform: translateX(0); }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="fixed top-0 left-0 w-full z-[100] bg-black/90 backdrop-blur-xl border-b border-white/10 h-20">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <a href="/" class="text-xl md:text-2xl font-black tracking-tighter uppercase">
+                AURA <span class="text-[#00FFFF]">BIONICS</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-12">
+                <a href="/aura/" class="nav-link text-xs tracking-widest uppercase">App</a>
+                <a href="/#mission" class="nav-link text-xs tracking-widest uppercase">Mission</a>
+                <a href="/#contact" class="nav-link text-xs tracking-widest uppercase">Contact</a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-white p-2" type="button" aria-label="Open menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="fixed top-0 right-0 w-full h-screen bg-black z-[101] flex flex-col items-center justify-center space-y-12">
+            <button id="menu-close" class="absolute top-6 right-6 text-white" type="button" aria-label="Close menu">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="/aura/" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">App</a>
+            <a href="/#mission" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Mission</a>
+            <a href="/#contact" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 min-h-screen">
+        <div class="modal-content text-left mx-auto">
+            <h1 class="text-3xl font-black mb-6 uppercase tracking-tight text-[#A020F0]">Terms of Service</h1>
+            <div class="space-y-4 text-gray-100 font-medium text-base leading-relaxed">
+                <p class="font-bold text-white italic">Last Updated: April 9, 2026</p>
+                
+                <div class="p-4 border border-[#FF3131]/20 bg-[#FF3131]/5 rounded-xl">
+                    <h3 class="text-[#FF3131] font-black uppercase text-sm tracking-widest mb-2">IMPORTANT MEDICAL DISCLAIMER</h3>
+                    <p class="text-white font-semibold">Aura Bionics Inc. provides a wellness and lifestyle technology experience intended for informational and educational purposes only. Aura Bionics does not provide medical advice, diagnosis, treatment, or health assessments. Always seek the advice of a qualified healthcare professional regarding medical concerns.</p>
+                </div>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. Access to the Service</h3>
+                <p>Access to Aura Bionics, including waitlist registration and beta features, is provided on an “as-is” and “as-available” basis. Aura Bionics reserves the right to suspend or terminate access if misuse, security risks, or violations of these Terms are identified.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">2. Use of the Service</h3>
+                <p>Aura Bionics provides AI-assisted wellness insights designed to support personal awareness and lifestyle reflection only. All outputs are informational and should not be relied upon as professional or clinical guidance.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Inner Circle & User Content</h3>
+                <p>Users may share messages and wellness content within Inner Circle features. This content is stored securely and is not shared outside the user’s designated connections.</p>
+                <p>With user consent, general wellness signals may be shared with Inner Circle connections through the Harmony Engine feature. No conversation content is shared.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Limitation of Liability</h3>
+                <p>To the maximum extent permitted by law, Aura Bionics Inc. shall not be liable for any indirect, incidental, or consequential damages arising from the use of the Service. The Service is provided without warranties of any kind.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. Intellectual Property</h3>
+                <p>All content, software, branding, and system logic associated with Aura Bionics are the exclusive property of Aura Bionics Inc. Unauthorized copying, modification, or reverse engineering is prohibited.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">6. Eligibility</h3>
+                <p>Aura Bionics is intended for users who are at least 18 years of age (or the age of majority in their jurisdiction). The Service is not designed for use by minors.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">7. Subscriptions & Payments</h3>
+                <p>Subscriptions are managed through the Apple App Store or Google Play Store. Payments, cancellations, and refunds are governed by the policies of the platform from which the application was downloaded. Aura Bionics does not store payment information.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">8. Third-Party Links</h3>
+                <p>The Service may include links to third-party websites or services for informational purposes. Aura Bionics Inc. is not responsible for the content, products, or services provided by third parties.</p>
+                
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">9. Governing Law</h3>
+                <p>These Terms are governed by the laws of the Province of Ontario, Canada.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-16 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-gray-400 text-sm font-semibold tracking-widest uppercase">
+                © 2026 AURA BIONICS INC.
+            </div>
+            <div class="flex gap-12">
+                <a href="/privacy/" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-xs uppercase tracking-widest font-bold">Privacy Policy</a>
+                <a href="/terms/" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-xs uppercase tracking-widest font-bold">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+        if (menuClose) menuClose.addEventListener('click', closeMenu);
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (nav) {
+                if (window.scrollY > 50) nav.classList.add('bg-black/95');
+                else nav.classList.remove('bg-black/95');
+            }
+        });
+    </script>
+</body>
+</html>

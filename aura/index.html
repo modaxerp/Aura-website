@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aura is an AI-powered self-awareness companion that helps you understand your daily energy through facial signals, health data, and personal patterns.">
+    <title>Aura - AI Self-Awareness Companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'aura-cyan': '#00FFFF',
+                        'aura-purple': '#A020F0',
+                        'aura-blue': '#6366f1',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --aura-cyan: #00FFFF;
+            --aura-purple: #A020F0;
+            --aura-bg: #000000;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--aura-bg); color: #fff; overflow-x: hidden; }
+        .gradient-text { background: linear-gradient(135deg, var(--aura-purple), var(--aura-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glow-subtle { box-shadow: 0 0 80px rgba(0,255,255,0.15), 0 0 120px rgba(160,32,240,0.1); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-up { animation: fadeUp 0.7s ease forwards; }
+        .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-child { opacity: 0; transform: translateY(24px) scale(0.98); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible .reveal-child { opacity: 1; transform: translateY(0) scale(1); }
+        .reveal-child:nth-child(1){ transition-delay: 0.05s } .reveal-child:nth-child(2){ transition-delay: 0.15s } .reveal-child:nth-child(3){ transition-delay: 0.25s }
+        .reveal-child:nth-child(4){ transition-delay: 0.35s } .reveal-child:nth-child(5){ transition-delay: 0.45s }
+        .phone-mockup { 
+            border-radius: 2.5rem; 
+            border: 10px solid #0d0d0d;
+            box-shadow: inset 0 0 0 2px rgba(255,255,255,0.06), 0 30px 60px -15px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+        .store-btn { transition: transform 0.2s ease, opacity 0.2s ease; }
+        .store-btn:hover { transform: scale(1.02); opacity: 0.95; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="../index.html" class="text-lg font-bold tracking-tight">AURA <span class="text-[var(--aura-cyan)]">BIONICS</span></a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="../index.html#mission" class="text-sm text-white/60 hover:text-white transition-colors">Mission</a>
+                <a href="../index.html#contact" class="text-sm text-white/60 hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-1/4 -left-1/4 w-[60%] h-[60%] bg-[var(--aura-purple)]/10 rounded-full blur-[180px]"></div>
+            <div class="absolute -bottom-1/4 -right-1/4 w-[50%] h-[50%] bg-[var(--aura-cyan)]/10 rounded-full blur-[150px]"></div>
+        </div>
+        <div class="relative max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="text-center lg:text-left order-2 lg:order-1">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 animate-fade-up">
+                    See What Your Face Says About Your Energy
+                </h1>
+                <p class="text-lg text-white/70 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0 animate-fade-up" style="animation-delay: 0.1s">
+                    Aura is your AI self-awareness companion. By combining facial signals, health data, and personal patterns, Aura helps you better understand your daily energy and evolving rhythms.
+                </p>
+                <div class="flex flex-col items-center lg:items-start gap-4 animate-fade-up" style="animation-delay: 0.2s">
+                    <span class="text-xs font-bold text-[var(--aura-cyan)] uppercase tracking-widest px-4 py-2 rounded-full border border-[var(--aura-cyan)]/50">Coming April 2026</span>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#" class="store-btn inline-flex items-center justify-center gap-3 bg-white text-black px-6 py-4 rounded-2xl font-semibold">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        Download on the App Store
+                    </a>
+                    <a href="#" class="store-btn inline-flex items-center justify-center gap-3 bg-white text-black px-6 py-4 rounded-2xl font-semibold">
+                        <svg class="w-8 h-8" viewBox="0 0 24 24"><path fill="currentColor" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                        Get it on Google Play
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex justify-center order-1 lg:order-2">
+                <div class="relative glow-subtle rounded-[2.5rem] p-2">
+                    <div class="phone-mockup w-[280px] sm:w-[320px] aspect-[9/19] bg-gradient-to-b from-white/5 to-white/10 flex items-center justify-center">
+                        <div class="w-full h-full bg-gradient-to-br from-[var(--aura-purple)]/20 via-transparent to-[var(--aura-cyan)]/20 flex items-center justify-center rounded-[2.2rem]">
+                            <div class="text-center px-6">
+                                <div class="w-24 h-24 mx-auto rounded-full bg-white/10 mb-4 flex items-center justify-center">
+                                    <svg class="w-12 h-12 text-[var(--aura-cyan)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                </div>
+                                <p class="text-sm text-white/60">Face scan placeholder</p>
+                                <p class="text-xs text-white/40 mt-2">Replace with app screenshot</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. VALUE STRIP -->
+    <section class="py-16 px-6 border-y border-white/5 reveal">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+            <div>
+                <p class="text-[var(--aura-cyan)] font-semibold text-sm uppercase tracking-widest mb-2">Daily self-awareness</p>
+                <p class="text-white/60 text-sm">Understand your energy patterns every day</p>
+            </div>
+            <div>
+                <p class="text-[var(--aura-cyan)] font-semibold text-sm uppercase tracking-widest mb-2">AI-powered insights</p>
+                <p class="text-white/60 text-sm">Reflections tailored to your patterns</p>
+            </div>
+            <div>
+                <p class="text-[var(--aura-cyan)] font-semibold text-sm uppercase tracking-widest mb-2">Judgment-free guidance</p>
+                <p class="text-white/60 text-sm">Support without pressure</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FEATURES -->
+    <section class="py-24 px-6 reveal">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16">Features</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-hover p-8 rounded-2xl bg-white/[0.03] border border-white/10">
+                    <div class="w-12 h-12 rounded-xl bg-[var(--aura-cyan)]/10 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-[var(--aura-cyan)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Smart Vision Analysis</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">A quick daily scan observes subtle facial signals related to fatigue and energy patterns.</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-white/[0.03] border border-white/10">
+                    <div class="w-12 h-12 rounded-xl bg-[var(--aura-purple)]/10 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-[var(--aura-purple)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Daily Direction</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">Start your day with a simple theme such as Focus Day or Recovery Day, with gentle suggestions to support your energy.</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-white/[0.03] border border-white/10">
+                    <div class="w-12 h-12 rounded-xl bg-[var(--aura-cyan)]/10 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-[var(--aura-cyan)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Progress Tracking</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">Track how your Aura evolves over time and understand how your sleep, energy, and habits change.</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-white/[0.03] border border-white/10">
+                    <div class="w-12 h-12 rounded-xl bg-[var(--aura-purple)]/10 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-[var(--aura-purple)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">AI Companion Conversations</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">Talk with Aura and receive supportive reflections tailored to your patterns.</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-white/[0.03] border border-white/10">
+                    <div class="w-12 h-12 rounded-xl bg-[var(--aura-cyan)]/10 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-[var(--aura-cyan)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Health Data Integration</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">Connect sleep, activity, and heart data to build a more personal baseline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SCREENSHOT STORY -->
+    <section class="py-24 px-6 bg-white/[0.02] reveal">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16">See Aura in action</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="flex flex-col items-center reveal-child">
+                    <div class="phone-mockup w-[200px] aspect-[9/19] bg-black">
+                        <img src="screenshots/See%20What%20Your%20Face.png" alt="See What Your Face Says About Your Energy" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+                <div class="flex flex-col items-center reveal-child">
+                    <div class="phone-mockup w-[200px] aspect-[9/19] bg-black">
+                        <img src="screenshots/Your%20Aura%20Is%20Learning.png" alt="Your Aura Is Learning" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+                <div class="flex flex-col items-center reveal-child">
+                    <div class="phone-mockup w-[200px] aspect-[9/19] bg-black">
+                        <img src="screenshots/Sync%20your%20Bio-Rhythms.png" alt="Sync your Bio-Rhythms" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+                <div class="flex flex-col items-center md:col-span-2 lg:col-span-1 lg:col-start-2 reveal-child">
+                    <div class="phone-mockup w-[200px] aspect-[9/19] bg-black">
+                        <img src="screenshots/Talk%20With%20Your%20Al.png" alt="Talk With Your AI Companion" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+                <div class="flex flex-col items-center md:col-span-2 lg:col-span-1 reveal-child">
+                    <div class="phone-mockup w-[200px] aspect-[9/19] bg-black">
+                        <img src="screenshots/Choose%20Your%20Al%20Guide.png" alt="Choose Your AI Guide" class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. HOW IT WORKS -->
+    <section class="py-24 px-6 reveal">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16">How it works</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[var(--aura-cyan)]/10 flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-[var(--aura-cyan)]">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Scan</h3>
+                    <p class="text-white/60 text-sm">Begin with a quick face scan and daily check-in.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[var(--aura-purple)]/10 flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-[var(--aura-purple)]">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Understand</h3>
+                    <p class="text-white/60 text-sm">Aura combines your visual signals, health data, and reflections.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[var(--aura-cyan)]/10 flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-[var(--aura-cyan)]">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Evolve</h3>
+                    <p class="text-white/60 text-sm">Track your patterns over time and build stronger awareness of your energy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. COMPANION -->
+    <section class="py-24 px-6 bg-white/[0.02] reveal">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6">Choose Your AI Guide</h2>
+            <p class="text-center text-white/70 max-w-2xl mx-auto mb-16">Eva offers a warm, supportive tone. Atlas offers a more structured and focused tone. Both adapt to your patterns and help you reflect in a way that feels natural.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card-hover p-10 rounded-2xl bg-white/[0.03] border border-white/10 text-center">
+                    <div class="w-20 h-20 rounded-full bg-[var(--aura-cyan)]/15 flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-[var(--aura-cyan)]">E</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Eva</h3>
+                    <p class="text-white/60 text-sm">Warm, supportive tone</p>
+                </div>
+                <div class="card-hover p-10 rounded-2xl bg-white/[0.03] border border-white/10 text-center">
+                    <div class="w-20 h-20 rounded-full bg-[var(--aura-purple)]/15 flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-[var(--aura-purple)]">A</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Atlas</h3>
+                    <p class="text-white/60 text-sm">Structured, focused tone</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SAFETY -->
+    <section class="py-20 px-6 reveal">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-2xl font-semibold mb-4">Built for awareness, not diagnosis</h2>
+            <p class="text-white/60 text-sm leading-relaxed">Aura supports personal awareness and reflection. Aura is not a medical device and does not provide medical advice, diagnosis, or treatment.</p>
+        </div>
+    </section>
+
+    <!-- 8. FINAL CTA -->
+    <section class="py-24 px-6 reveal">
+        <div class="max-w-2xl mx-auto text-center">
+            <span class="inline-block text-xs font-bold text-[var(--aura-cyan)] uppercase tracking-widest mb-4 px-4 py-2 rounded-full border border-[var(--aura-cyan)]/50">Coming April 2026</span>
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Start your daily energy ritual</h2>
+            <p class="text-white/70 mb-10">Download Aura and begin building a deeper awareness of your daily rhythms.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="store-btn inline-flex items-center justify-center gap-3 bg-white text-black px-6 py-4 rounded-2xl font-semibold">
+                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    Download on the App Store
+                </a>
+                <a href="#" class="store-btn inline-flex items-center justify-center gap-3 bg-white text-black px-6 py-4 rounded-2xl font-semibold">
+                    <svg class="w-7 h-7" viewBox="0 0 24 24"><path fill="currentColor" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                    Get it on Google Play
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8b. BLOG / INSIGHTS PLACEHOLDER -->
+    <section class="py-24 px-6 bg-white/[0.02] reveal">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4">Insights</h2>
+            <p class="text-center text-white/60 text-sm max-w-xl mx-auto mb-12">Articles, research, and reflections on self-awareness, energy, and the future of AI companionship.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card-hover p-8 rounded-2xl bg-white/[0.03] border border-white/10 border-dashed text-center">
+                    <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                    </div>
+                    <p class="text-white/70 font-semibold mb-1">Blog</p>
+                    <p class="text-white/40 text-sm">Coming soon</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-white/[0.03] border border-white/10 border-dashed text-center">
+                    <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <p class="text-white/70 font-semibold mb-1">FAQ</p>
+                    <p class="text-white/40 text-sm">Coming soon</p>
+                </div>
+                <div class="card-hover p-8 rounded-2xl bg-white/[0.03] border border-white/10 border-dashed text-center">
+                    <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <p class="text-white/70 font-semibold mb-1">Research</p>
+                    <p class="text-white/40 text-sm">Coming soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer class="py-12 border-t border-white/5 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-white/40 text-sm">© 2026 AURA BIONICS INC.</div>
+            <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
+                <a href="/privacy/" class="text-white/50 hover:text-[var(--aura-cyan)] transition-colors text-sm">Privacy Policy</a>
+                <a href="/terms/" class="text-white/50 hover:text-[var(--aura-cyan)] transition-colors text-sm">Terms of Use</a>
+                <a href="../index.html#contact" class="text-white/50 hover:text-[var(--aura-cyan)] transition-colors text-sm">Contact</a>
+                <a href="https://instagram.com/aurabionics" target="_blank" rel="noopener noreferrer" class="text-white/50 hover:text-[var(--aura-cyan)] transition-colors" aria-label="Instagram">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0 3.205.012 3.584.07 4.849.149 3.227 1.664 4.771 4.92 4.919 1.266.058 1.644.07 4.85.07 3.204 0 3.584-.012 4.849-.07 3.26-.149 4.771-1.699 4.919-4.92.058-1.265.07-1.644.07-4.849 0-3.205-.012-3.584-.07-4.849-.149-3.26-1.699-4.771-4.919-4.92-1.265-.058-1.644-.07-4.849-.07zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function(){
+            const reveal = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting){
+                        e.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+            reveal.forEach(function(el){ observer.observe(el); });
+        })();
+    </script>
+</body>
+</html>
