@@ -91,6 +91,9 @@
 
     <main class="pt-32 pb-20 px-6 min-h-screen">
         <div class="modal-content text-left mx-auto">
+            <a href="/" id="page-back" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#00FFFF] hover:text-white mb-6 transition-colors">
+                <span aria-hidden="true">←</span> Back
+            </a>
             <h1 class="text-3xl font-black mb-6 uppercase tracking-tight text-[#A020F0]">Terms of Service</h1>
             <div class="space-y-4 text-gray-100 font-medium text-base leading-relaxed">
                 <p class="font-bold text-white italic">Last Updated: April 9, 2026</p>
@@ -157,6 +160,17 @@
         }
         if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
         if (menuClose) menuClose.addEventListener('click', closeMenu);
+        (function () {
+            var back = document.getElementById('page-back');
+            if (!back) return;
+            back.addEventListener('click', function (e) {
+                var ref = document.referrer;
+                if (ref && ref.indexOf(location.origin) === 0) {
+                    e.preventDefault();
+                    history.back();
+                }
+            });
+        })();
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (nav) {
