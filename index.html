@@ -31,35 +31,37 @@
             padding: 0;
         }
 
-        /* 'Breathing from Darkness' Heartbeat Animation */
+        /* Heartbeat: scale + glow that follows the orb alpha (no solid backing circle) */
         @keyframes heartbeat {
-            0% { 
-                transform: scale(1); 
-                box-shadow: 0 0 0 rgba(160, 32, 240, 0), 0 0 0 rgba(0, 255, 255, 0);
+            0% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.25)) drop-shadow(0 0 24px rgba(160, 32, 240, 0.2));
             }
-            50% { 
-                transform: scale(1.05); 
-                box-shadow: 0 0 50px rgba(160, 32, 240, 0.7), 0 0 100px rgba(0, 255, 255, 0.5);
+            50% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 28px rgba(0, 255, 255, 0.65)) drop-shadow(0 0 56px rgba(160, 32, 240, 0.45)) drop-shadow(0 0 80px rgba(0, 255, 255, 0.2));
             }
-            100% { 
-                transform: scale(1); 
-                box-shadow: 0 0 0 rgba(160, 32, 240, 0), 0 0 0 rgba(0, 255, 255, 0);
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.25)) drop-shadow(0 0 24px rgba(160, 32, 240, 0.2));
             }
         }
 
         .logo-glow {
             border-radius: 50%;
-            object-fit: cover;
+            object-fit: contain;
             aspect-ratio: 1 / 1;
             animation: heartbeat 3s infinite ease-in-out;
-            transition: transform 0.5s ease;
-            background-color: var(--bg-black);
+            transition: transform 0.5s ease, filter 0.5s ease;
+            background: transparent;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .logo-glow:hover {
             animation-play-state: paused;
             transform: scale(1.1);
-            box-shadow: 0 0 60px rgba(160, 32, 240, 0.8), 0 0 120px rgba(0, 255, 255, 0.6);
+            filter: drop-shadow(0 0 32px rgba(0, 255, 255, 0.75)) drop-shadow(0 0 64px rgba(160, 32, 240, 0.55));
         }
 
         /* Glassmorphism Elements */
@@ -249,7 +251,7 @@
         <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#00FFFF]/10 rounded-full blur-[150px] pointer-events-none"></div>
 
         <div class="mb-14 flex justify-center w-full">
-            <img src="logo.png" alt="Aura Bionics Logo" style="width: 250px; height: auto;" class="logo-glow">
+            <img src="circle/aura-orb.png" alt="Aura — AI awareness companion icon" width="250" height="250" style="width: 250px; height: auto; max-width: min(250px, 70vw);" class="logo-glow" decoding="async">
         </div>
 
         <h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9]">
