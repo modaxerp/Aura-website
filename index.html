@@ -32,50 +32,17 @@
         }
 
         /*
-         * Hero orb: (1) 900×900 asset shown at ~250px so Retina + beat scale stay sharp.
-         * (2) Pulse glow on a separate blurred halo — filter + scale on the same <img>
-         *    often forces a soft, low-res composite in WebKit during animation.
+         * Hero orb: circle/aura-orb.png has soft transparent edges (no big black matte).
+         * Avoid border-radius on <img> (stops a visible ring vs the glow).
+         * No filter on the animated wrapper (keeps beat sharp in WebKit).
          */
         @keyframes orb-beat {
             0%, 100% { transform: scale(1) translateZ(0); }
-            50% { transform: scale(1.05) translateZ(0); }
+            50% { transform: scale(1.04) translateZ(0); }
         }
 
-        @keyframes orb-halo-pulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.92; transform: scale(1.08); }
-        }
-
-        .aura-orb-stack {
-            position: relative;
-            width: min(250px, 70vw);
-            aspect-ratio: 1 / 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .aura-orb-halo {
-            position: absolute;
-            inset: -20%;
-            border-radius: 50%;
-            background: radial-gradient(
-                ellipse 75% 75% at 50% 50%,
-                rgba(0, 255, 255, 0.42) 0%,
-                rgba(160, 32, 240, 0.32) 40%,
-                transparent 70%
-            );
-            filter: blur(36px);
-            -webkit-filter: blur(36px);
-            pointer-events: none;
-            z-index: 0;
-            animation: orb-halo-pulse 3s ease-in-out infinite;
-        }
-
-        .aura-orb-beat {
-            position: relative;
-            z-index: 1;
-            width: 100%;
+        .aura-orb-wrap {
+            display: inline-block;
             line-height: 0;
             animation: orb-beat 3s ease-in-out infinite;
             transform-origin: center center;
@@ -84,25 +51,17 @@
             backface-visibility: hidden;
         }
 
+        .aura-orb-wrap:hover {
+            animation-play-state: paused;
+            transform: scale(1.08) translateZ(0);
+        }
+
         .aura-orb-img {
-            width: 100%;
+            width: min(220px, 62vw);
             height: auto;
+            max-width: 100%;
             display: block;
-            border-radius: 50%;
-            background: transparent;
-            object-fit: contain;
-            vertical-align: middle;
-        }
-
-        .aura-orb-stack:hover .aura-orb-beat {
-            animation-play-state: paused;
-            transform: scale(1.1) translateZ(0);
-        }
-
-        .aura-orb-stack:hover .aura-orb-halo {
-            animation-play-state: paused;
-            opacity: 0.95;
-            transform: scale(1.12);
+            vertical-align: top;
         }
 
         /* Glassmorphism Elements */
@@ -292,11 +251,8 @@
         <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#00FFFF]/10 rounded-full blur-[150px] pointer-events-none"></div>
 
         <div class="mb-14 flex justify-center w-full">
-            <div class="aura-orb-stack">
-                <div class="aura-orb-halo" aria-hidden="true"></div>
-                <div class="aura-orb-beat">
-                    <img src="circle/aura-orb-hero@2x.png" alt="Aura — AI awareness companion icon" width="900" height="900" class="aura-orb-img" decoding="async" fetchpriority="high">
-                </div>
+            <div class="aura-orb-wrap">
+                <img src="circle/aura-orb.png" alt="Aura — AI awareness companion icon" width="400" height="400" class="aura-orb-img" decoding="async" fetchpriority="high">
             </div>
         </div>
 
