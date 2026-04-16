@@ -32,9 +32,8 @@
         }
 
         /*
-         * Hero orb: circle/aura-orb.png has soft transparent edges (no big black matte).
-         * Avoid border-radius on <img> (stops a visible ring vs the glow).
-         * No filter on the animated wrapper (keeps beat sharp in WebKit).
+         * Hero: 1024×1024 App Store–optimized raster (sharp at ~220px CSS + beat).
+         * No filter on the animated wrapper (keeps scale crisp in WebKit).
          */
         @keyframes orb-beat {
             0%, 100% { transform: scale(1) translateZ(0); }
@@ -252,7 +251,7 @@
 
         <div class="mb-14 flex justify-center w-full">
             <div class="aura-orb-wrap">
-                <img src="circle/aura-orb.png" alt="Aura — AI awareness companion icon" width="400" height="400" class="aura-orb-img" decoding="async" fetchpriority="high">
+                <img src="circle/aura-icon-appstore-1024.png" alt="Aura — AI awareness companion icon" width="1024" height="1024" class="aura-orb-img" decoding="async" fetchpriority="high">
             </div>
         </div>
 
