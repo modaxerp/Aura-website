@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Aura Hydrate</title>
+    <meta name="description" content="Privacy Policy for Aura Hydrate, a fully anonymous hydration tracker. We don't collect personal data. Hydration logs live entirely on your device.">
+    <link rel="canonical" href="https://aurabionics.com/aura-hydrate/privacy/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --hydrate-cyan: #4FE0D8;
+            --hydrate-blue: #4FB8E0;
+            --bg-black: #000000;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-black);
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .modal-content {
+            max-width: 800px;
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #ffffff; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--hydrate-cyan);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.active { transform: translateX(0); }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="fixed top-0 left-0 w-full z-[100] bg-black/90 backdrop-blur-xl border-b border-white/10 h-20">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <a href="/" class="text-xl md:text-2xl font-black tracking-tighter uppercase">
+                AURA <span class="text-[#00FFFF]">BIONICS</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-12">
+                <a href="/#apps" class="nav-link text-xs tracking-widest uppercase">Apps</a>
+                <a href="/#mission" class="nav-link text-xs tracking-widest uppercase">Mission</a>
+                <a href="/#contact" class="nav-link text-xs tracking-widest uppercase">Contact</a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-white p-2" type="button" aria-label="Open menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="fixed top-0 right-0 w-full h-screen bg-black z-[101] flex flex-col items-center justify-center space-y-12">
+            <button id="menu-close" class="absolute top-6 right-6 text-white" type="button" aria-label="Close menu">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="/#apps" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Apps</a>
+            <a href="/#mission" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Mission</a>
+            <a href="/#contact" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 min-h-screen">
+        <div class="modal-content text-left mx-auto">
+            <a href="/aura-hydrate/" id="page-back" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#4FE0D8] hover:text-white mb-6 transition-colors">
+                <span aria-hidden="true">←</span> Back
+            </a>
+            <h1 class="text-3xl font-black mb-2 uppercase tracking-tight text-[#4FE0D8]">Privacy Policy</h1>
+            <p class="text-sm uppercase tracking-widest text-white/40 font-bold mb-6">Aura Hydrate</p>
+
+            <div class="space-y-4 text-gray-100 font-medium text-base leading-relaxed">
+                <p class="font-bold text-white italic">Last Updated: May 03, 2026</p>
+
+                <p>Aura Bionics Inc. ("Aura Bionics", "we", "our", "us") is a technology company based in Ontario, Canada. This Privacy Policy explains how the <strong>Aura Hydrate</strong> mobile application ("the Service") handles information.</p>
+
+                <p>The short version: <strong>Aura Hydrate is fully anonymous. We do not collect names, emails, locations, photos, or any personal information.</strong> Your hydration logs, streaks, glass settings, and progress live entirely on your own device. By using the Service, you agree to the practices described in this Privacy Policy.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. Information We Collect</h3>
+                <p>We deliberately collect as little as possible.</p>
+
+                <p><strong>What is stored on your device only:</strong></p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li><strong>Hydration logs</strong> — when you log a glass of water, the time, and the volume.</li>
+                    <li><strong>Daily streak</strong> — counted locally based on the days you logged at least one glass.</li>
+                    <li><strong>App settings</strong> — chosen glass size (200/250/350 ml), daily target, your first name (optional, only stored on device for the in-app greeting), notification preference, sound preference.</li>
+                    <li><strong>Onboarding state</strong> — whether you have completed onboarding.</li>
+                </ul>
+                <p>This data is stored using your operating system's standard local key/value storage (<em>SharedPreferences</em> on Android, <em>UserDefaults</em> on iOS). It does <strong>not</strong> leave your device.</p>
+
+                <p><strong>What is processed off-device:</strong></p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li><strong>Subscription receipts</strong> — only if you choose to subscribe to Aura Hydrate Pro. The receipt is processed by Apple/Google and forwarded to RevenueCat for entitlement validation. We receive only an anonymous user ID and your purchase status.</li>
+                    <li><strong>Crash reports (optional, future versions)</strong> — anonymized stack traces with no personal data, used solely to fix bugs. You will be able to opt out in app settings.</li>
+                </ul>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">2. What We Do <em>Not</em> Collect</h3>
+                <p>We do <strong>not</strong> collect, store, or process any of the following:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li>Your name, email, phone number, or any contact information (the optional first name you can enter in onboarding stays on your device only).</li>
+                    <li>Your real location, IP address (beyond what Apple/Google relay for purchase verification), or device identifiers tied to your identity.</li>
+                    <li>Photos, camera access, microphone access, or biometric data of any kind.</li>
+                    <li>Health, fitness, or medical records from HealthKit, Google Fit, or any other source.</li>
+                    <li>Contact lists, calendar events, or any other data from your device.</li>
+                    <li>Browsing history or usage outside of Aura Hydrate.</li>
+                </ul>
+                <p>We do <strong>not</strong> use your data for third-party advertising. We do <strong>not</strong> sell or rent any data. We do <strong>not</strong> share data with data brokers.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. How Data Is Used</h3>
+                <p>The on-device data is used solely to:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li>Display your hydration progress, streaks, and daily total</li>
+                    <li>Trigger reminder notifications you have enabled</li>
+                    <li>Show your league rank (computed locally from anonymous, aggregate signals — see Section 5)</li>
+                    <li>Provide simple, on-device personalized feedback ("nice pace", "halfway there")</li>
+                </ul>
+                <p>Subscription data (received via Apple/Google + RevenueCat) is used solely to verify entitlement to Aura Hydrate Pro features.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Permissions Aura Hydrate Requests</h3>
+                <p><strong>Notifications</strong> — only if you opt in during onboarding or in settings. Used to send hydration reminders. You can revoke notification permission at any time from your device settings; the app will continue to work without them.</p>
+                <p>Aura Hydrate does <strong>not</strong> request: camera, microphone, contacts, location, photo library, calendar, health/fitness, or any other sensitive permission.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. Third Parties</h3>
+                <p>The Service uses the minimum number of third-party providers needed to deliver subscriptions and (optionally) basic stability monitoring.</p>
+
+                <table class="w-full text-sm my-4 border-collapse">
+                    <thead>
+                    <tr>
+                        <th class="border border-white/20 p-2 text-left text-white/90">Provider</th>
+                        <th class="border border-white/20 p-2 text-left text-white/90">Purpose</th>
+                        <th class="border border-white/20 p-2 text-left text-white/90">Data Shared</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="border border-white/20 p-2 align-top"><strong>Apple App Store</strong></td>
+                        <td class="border border-white/20 p-2 align-top">In-app subscription processing (iOS)</td>
+                        <td class="border border-white/20 p-2 align-top">Purchase receipt only. Apple receives no personal data from us.</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-white/20 p-2 align-top"><strong>Google Play Billing</strong></td>
+                        <td class="border border-white/20 p-2 align-top">In-app subscription processing (Android)</td>
+                        <td class="border border-white/20 p-2 align-top">Purchase receipt only. Google receives no personal data from us.</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-white/20 p-2 align-top"><strong>RevenueCat</strong></td>
+                        <td class="border border-white/20 p-2 align-top">Subscription entitlement validation</td>
+                        <td class="border border-white/20 p-2 align-top">Anonymous user ID + purchase status. No personal information.</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-white/20 p-2 align-top"><strong>Firebase Crashlytics</strong> <span class="text-white/50">(future)</span></td>
+                        <td class="border border-white/20 p-2 align-top">Anonymized crash reports for stability fixes</td>
+                        <td class="border border-white/20 p-2 align-top">Stack traces, OS version, device model. No identifiers tied to you. Opt-out available.</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-white/20 p-2 align-top"><strong>Firebase Analytics</strong> <span class="text-white/50">(future)</span></td>
+                        <td class="border border-white/20 p-2 align-top">Anonymized aggregate usage (which features are used, frequency)</td>
+                        <td class="border border-white/20 p-2 align-top">Event names + counts only. Anonymized IDs that cannot be reverse-linked. Opt-out available.</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <p>Each third-party service is governed by its own privacy policy:</p>
+                <ul class="list-disc list-outside pl-5 space-y-1 my-2">
+                    <li>Apple: <a class="text-[#4FE0D8] hover:underline" href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></li>
+                    <li>Google: <a class="text-[#4FE0D8] hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+                    <li>RevenueCat: <a class="text-[#4FE0D8] hover:underline" href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></li>
+                    <li>Firebase: <a class="text-[#4FE0D8] hover:underline" href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></li>
+                </ul>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">6. Data Retention</h3>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li><strong>On-device data</strong> — kept until you uninstall Aura Hydrate. Uninstalling the app permanently deletes all hydration logs, streaks, and settings stored locally.</li>
+                    <li><strong>Subscription records</strong> — retained by Apple/Google and RevenueCat per their respective policies, typically as long as required for tax and accounting purposes (commonly 7 years). These are tied to your Apple/Google account, not to any personal data we hold.</li>
+                    <li><strong>Future anonymized telemetry</strong> — aggregated indefinitely as it cannot be linked to an individual.</li>
+                </ul>
+                <p>You can fully wipe your Aura Hydrate footprint by uninstalling the app and cancelling any active subscription via your Apple/Google account.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">7. Age Requirements</h3>
+                <p>Aura Hydrate is designed for users aged <strong>18 and over</strong>.</p>
+                <p>You are required to confirm you are 18 or older during onboarding. We do <strong>not</strong> knowingly collect any data from anyone under 18. If you believe a minor has used Aura Hydrate, please contact <strong>info@aurabionics.com</strong> and we will assist with any concerns. Because Aura Hydrate stores no personal data on our servers, there is no server-side data to delete — uninstalling the app erases everything locally.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">8. International Compliance</h3>
+                <p>We operate in accordance with applicable privacy laws, including:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li><strong>PIPEDA</strong> (Personal Information Protection and Electronic Documents Act, Canada)</li>
+                    <li><strong>Ontario privacy legislation</strong></li>
+                    <li><strong>GDPR</strong> (General Data Protection Regulation, European Union)</li>
+                    <li><strong>UK GDPR</strong> (United Kingdom)</li>
+                    <li><strong>CCPA / CPRA</strong> (California Consumer Privacy Act, where applicable)</li>
+                    <li><strong>LGPD</strong> (Lei Geral de Proteção de Dados, Brazil)</li>
+                </ul>
+                <p><strong>BIPA (Illinois Biometric Information Privacy Act)</strong> does not apply: Aura Hydrate does not collect biometric identifiers or biometric information of any kind.</p>
+                <p>Because Aura Hydrate stores no personally identifying information, most data subject rights (access, deletion, portability) are satisfied by the fact that no data exists outside your own device. If you have a specific privacy request under any of the laws above, contact <strong>info@aurabionics.com</strong>.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">9. Data Security</h3>
+                <p>We apply the following safeguards:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li>All network communication with Apple, Google, and RevenueCat happens over encrypted channels (HTTPS/TLS).</li>
+                    <li>Local on-device storage relies on the OS's standard sandboxed key/value store, isolated from other apps.</li>
+                    <li>The minimum number of third-party SDKs is integrated, each vetted for compliance.</li>
+                </ul>
+                <p>No system is impenetrable. However, because Aura Hydrate holds no personal data on our servers, the breach surface is intentionally near-zero.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">10. Changes to This Policy</h3>
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. Material changes will be communicated through:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li>An in-app notice the next time you open Aura Hydrate</li>
+                    <li>An updated "Last Updated" date at the top of this policy</li>
+                </ul>
+                <p>Continued use of the Service after an update constitutes acceptance of the revised policy.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">11. Contact</h3>
+                <p>For privacy-related questions or concerns, please contact:</p>
+                <p><strong>Aura Bionics Inc.</strong><br/>
+                Ontario, Canada<br/>
+                Email: <strong>info@aurabionics.com</strong></p>
+                <p>For GDPR-related requests, please include "GDPR Request" in the subject line.<br/>
+                For CCPA-related requests, please include "CCPA Request" in the subject line.</p>
+                <p>We aim to respond to all privacy inquiries within 30 days.</p>
+
+                <hr class="border-white/10 my-6"/>
+                <p><strong>Version:</strong> 1.0<br/>
+                <strong>Effective Date:</strong> May 03, 2026</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-16 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-gray-400 text-sm font-semibold tracking-widest uppercase">
+                © 2026 AURA BIONICS INC.
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-12 gap-y-4">
+                <a href="/aura-hydrate/privacy/" class="text-gray-400 hover:text-[#4FE0D8] transition-colors text-xs uppercase tracking-widest font-bold">Privacy Policy</a>
+                <a href="/aura-hydrate/terms/" class="text-gray-400 hover:text-[#4FE0D8] transition-colors text-xs uppercase tracking-widest font-bold">Terms of Service</a>
+                <a href="/delete-account/#aura-hydrate" class="text-gray-400 hover:text-[#4FE0D8] transition-colors text-xs uppercase tracking-widest font-bold">Delete Data</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+        if (menuClose) menuClose.addEventListener('click', closeMenu);
+        (function () {
+            var back = document.getElementById('page-back');
+            if (!back) return;
+            back.addEventListener('click', function (e) {
+                var ref = document.referrer;
+                if (ref && ref.indexOf(location.origin) === 0) {
+                    e.preventDefault();
+                    history.back();
+                }
+            });
+        })();
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (nav) {
+                if (window.scrollY > 50) nav.classList.add('bg-black/95');
+                else nav.classList.remove('bg-black/95');
+            }
+        });
+    </script>
+</body>
+</html>

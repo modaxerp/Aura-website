@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <title>AURA BIONICS | Wellness & Lifestyle Companion</title>
+    <title>AURA BIONICS | Wellness apps that feel alive.</title>
+    <meta name="description" content="Aura Bionics builds privacy-first wellness apps that turn small daily moments into real habits, each one focused on a single thing it does beautifully.">
+    <link rel="canonical" href="https://aurabionics.com/">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -269,7 +271,7 @@
             </a>
             
             <div class="hidden md:flex items-center space-x-12">
-                <a href="/aura/" class="nav-link text-xs tracking-widest uppercase">App</a>
+                <a href="/#apps" class="nav-link text-xs tracking-widest uppercase">Apps</a>
                 <a href="/#mission" class="nav-link text-xs tracking-widest uppercase">Mission</a>
                 <a href="/#contact" class="nav-link text-xs tracking-widest uppercase">Contact</a>
             </div>
@@ -287,7 +289,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
-            <a href="/aura/" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">App</a>
+            <a href="/#apps" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Apps</a>
             <a href="/#mission" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Mission</a>
             <a href="/#contact" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Contact</a>
         </div>
@@ -343,7 +345,7 @@
                     <div class="aura-logo-disc">
                         <div class="aura-logo-clip">
                             <div class="aura-logo-img-scale">
-                                <img src="circle/aura-icon-hero-1024.png" alt="Aura — AI awareness companion icon" width="1024" height="1024" decoding="async" fetchpriority="high">
+                                <img src="circle/aura-icon-hero-1024.png" alt="Aura Bionics AI awareness companion icon" width="1024" height="1024" decoding="async" fetchpriority="high">
                             </div>
                             <div class="aura-logo-shimmer aura-logo-shimmer--inner" aria-hidden="true"></div>
                         </div>
@@ -356,15 +358,21 @@
         <h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9]">
             AURA <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#A020F0] to-[#00FFFF]">BIONICS</span>
         </h1>
-        
+
         <p class="text-xl md:text-3xl text-white/80 max-w-3xl mx-auto mb-4 font-bold tracking-tight">
-            Your wellness and lifestyle companion.
+            Wellness apps that feel alive.
         </p>
-        <p class="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-16 font-light">
-            Early access is limited. Join the waitlist for updates.
+        <p class="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-12 font-light" style="text-wrap: balance;">
+            We build privacy-first apps that turn small daily wellness moments into real habits, each one focused on a single thing it does beautifully.
         </p>
 
+        <a href="#apps" class="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-gradient-to-r from-[#A020F0] to-[#00FFFF] text-black font-black uppercase tracking-widest text-sm md:text-base hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(0,255,255,0.4)] transition-all mb-16">
+            Explore our apps <span aria-hidden="true">↓</span>
+        </a>
+
+        <!-- Subordinate waitlist (stay informed) -->
         <div class="w-full max-w-xl mx-auto">
+            <p class="text-xs text-white/40 uppercase tracking-widest font-bold mb-4">Stay in the loop</p>
             <form id="waitlist-form" name="waitlist" method="POST" action="/api/waitlist" class="flex flex-col sm:flex-row gap-5">
                 <input type="email" name="email" placeholder="Enter your email address" required class="flex-1 px-8 py-5 rounded-2xl neon-input text-white font-semibold text-lg"/>
                 <button type="submit" class="px-12 py-5 rounded-2xl glow-btn whitespace-nowrap text-lg">Join Waitlist</button>
@@ -378,6 +386,61 @@
                     [ ACKNOWLEDGE ]
                 </button>
             </div>
+        </div>
+    </section>
+
+    <!-- Apps Section — the heart of the umbrella site -->
+    <section id="apps" class="py-32 px-6 bg-[#050505] border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase italic">Our Apps</h2>
+                <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto font-light" style="text-wrap: balance;">
+                    Each app focuses on one wellness moment, built to feel alive in your hand.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- ── Aura Bionics (the wellness companion app) ── -->
+                <a href="/aura/" class="group relative block rounded-3xl border border-white/10 bg-gradient-to-br from-[#A020F0]/15 via-black to-[#00FFFF]/10 p-10 hover:border-[#A020F0]/40 hover:-translate-y-1 transition-all duration-300">
+                    <div class="flex flex-col h-full">
+                        <!-- App icon plate — Aura's design lives in dark space, so we keep the squircle backing intact -->
+                        <div class="mb-8 w-32 h-32 rounded-[26px] overflow-hidden bg-black flex items-center justify-center shadow-[0_0_60px_rgba(160,32,240,0.3)]">
+                            <img src="circle/aura-icon-hero-1024.png" alt="Aura Bionics app icon" class="w-full h-full object-cover scale-125">
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-black mb-2 tracking-tight">Aura Bionics</h3>
+                        <p class="text-[#A020F0] font-bold text-xs md:text-sm uppercase tracking-widest mb-5">AI Wellness Companion</p>
+                        <p class="text-white/70 leading-relaxed mb-8 font-light" style="text-wrap: balance;">
+                            Face scan, Eva and Atlas AI companions, dream journal, and Inner Circle. Your everyday self-awareness mirror.
+                        </p>
+                        <div class="mt-auto flex items-center text-[#00FFFF] font-bold uppercase tracking-widest text-xs md:text-sm group-hover:translate-x-1 transition-transform">
+                            Open <span class="ml-2" aria-hidden="true">→</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ── Aura Hydrate ── -->
+                <a href="/aura-hydrate/" class="group relative block rounded-3xl border border-white/10 bg-gradient-to-br from-[#4FE0D8]/15 via-black to-[#4FB8E0]/10 p-10 hover:border-[#4FE0D8]/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                    <div class="absolute top-6 right-6 px-3 py-1 rounded-full bg-[#4FE0D8]/15 border border-[#4FE0D8]/40 text-[#4FE0D8] text-[10px] md:text-xs font-black uppercase tracking-widest">Coming Soon</div>
+                    <div class="flex flex-col h-full">
+                        <!-- Real app icon — alpha squircle, sits flush on the card without a backing plate -->
+                        <div class="mb-8 w-32 h-32 flex items-center justify-center drop-shadow-[0_0_60px_rgba(79,224,216,0.35)]">
+                            <img src="aura-hydrate/aura-hydrate-icon-1024.png" alt="Aura Hydrate app icon" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-black mb-2 tracking-tight">Aura Hydrate</h3>
+                        <p class="text-[#4FE0D8] font-bold text-xs md:text-sm uppercase tracking-widest mb-5">Hydrate like a habit</p>
+                        <p class="text-white/70 leading-relaxed mb-8 font-light" style="text-wrap: balance;">
+                            A glass character that reacts as you fill it. Streaks, daily feedback, and a 5-tier league. The cute, premium way to actually drink water.
+                        </p>
+                        <div class="mt-auto flex items-center text-[#4FE0D8] font-bold uppercase tracking-widest text-xs md:text-sm group-hover:translate-x-1 transition-transform">
+                            Learn more <span class="ml-2" aria-hidden="true">→</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <p class="text-center text-white/30 text-xs md:text-sm uppercase tracking-widest font-bold mt-16">
+                More apps in the works · One company, many wellness moments
+            </p>
         </div>
     </section>
 
@@ -414,16 +477,33 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer — umbrella style: per-app legal links -->
     <footer class="py-16 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <div class="text-gray-400 text-sm font-semibold tracking-widest uppercase">
-                © 2026 AURA BIONICS INC.
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 mb-10">
+                <div class="text-gray-400 text-sm font-semibold tracking-widest uppercase">
+                    © 2026 AURA BIONICS INC.
+                </div>
+                <div class="flex flex-wrap justify-center gap-x-8 gap-y-3">
+                    <a href="/aura/" class="text-gray-400 hover:text-[#A020F0] transition-colors text-xs uppercase tracking-widest font-bold">Aura Bionics</a>
+                    <a href="/aura-hydrate/" class="text-gray-400 hover:text-[#4FE0D8] transition-colors text-xs uppercase tracking-widest font-bold">Aura Hydrate</a>
+                    <a href="/delete-account/" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-xs uppercase tracking-widest font-bold">Delete Account</a>
+                </div>
             </div>
-            <div class="flex flex-wrap justify-center gap-x-12 gap-y-4">
-                <a href="/privacy/" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-xs uppercase tracking-widest font-bold">Privacy Policy</a>
-                <a href="/terms/" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-xs uppercase tracking-widest font-bold">Terms of Service</a>
-                <a href="/delete-account/" class="text-gray-400 hover:text-[#00FFFF] transition-colors text-xs uppercase tracking-widest font-bold">Delete Account</a>
+            <!-- Per-app legal — each app has its own complete Privacy + Terms -->
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] md:text-xs uppercase tracking-widest font-bold text-white/30">
+                <div class="flex items-center gap-4">
+                    <span>Aura Bionics</span>
+                    <a href="/aura/privacy/" class="hover:text-[#A020F0] transition-colors">Privacy</a>
+                    <span class="text-white/20">·</span>
+                    <a href="/aura/terms/" class="hover:text-[#A020F0] transition-colors">Terms</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span>Aura Hydrate</span>
+                    <a href="/aura-hydrate/privacy/" class="hover:text-[#4FE0D8] transition-colors">Privacy</a>
+                    <span class="text-white/20">·</span>
+                    <a href="/aura-hydrate/terms/" class="hover:text-[#4FE0D8] transition-colors">Terms</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -431,13 +511,17 @@
     <!-- Scripts -->
     <script>
         (function () {
+            // Legacy hash routing: old links pointed to #privacy / #terms.
+            // After the umbrella restructure, those docs live per-app under
+            // /aura/. We send the legacy hashes to Aura's legal pages so any
+            // old in-app/email links continue to work.
             var h = window.location.hash;
             if (h === '#privacy') {
-                window.location.replace('/privacy/' + window.location.search);
+                window.location.replace('/aura/privacy/' + window.location.search);
                 return;
             }
             if (h === '#terms') {
-                window.location.replace('/terms/' + window.location.search);
+                window.location.replace('/aura/terms/' + window.location.search);
                 return;
             }
         })();

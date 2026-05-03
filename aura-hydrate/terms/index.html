@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Aura Hydrate</title>
+    <meta name="description" content="Terms of Service for Aura Hydrate. Eligibility, subscriptions, payment, and acceptable use of the Aura Hydrate hydration tracker.">
+    <link rel="canonical" href="https://aurabionics.com/aura-hydrate/terms/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --hydrate-cyan: #4FE0D8;
+            --hydrate-blue: #4FB8E0;
+            --bg-black: #000000;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-black);
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .modal-content {
+            max-width: 800px;
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #ffffff; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--hydrate-cyan);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        #mobile-menu {
+            transition: transform 0.4s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.active { transform: translateX(0); }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="fixed top-0 left-0 w-full z-[100] bg-black/90 backdrop-blur-xl border-b border-white/10 h-20">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <a href="/" class="text-xl md:text-2xl font-black tracking-tighter uppercase">
+                AURA <span class="text-[#00FFFF]">BIONICS</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-12">
+                <a href="/#apps" class="nav-link text-xs tracking-widest uppercase">Apps</a>
+                <a href="/#mission" class="nav-link text-xs tracking-widest uppercase">Mission</a>
+                <a href="/#contact" class="nav-link text-xs tracking-widest uppercase">Contact</a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-white p-2" type="button" aria-label="Open menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="fixed top-0 right-0 w-full h-screen bg-black z-[101] flex flex-col items-center justify-center space-y-12">
+            <button id="menu-close" class="absolute top-6 right-6 text-white" type="button" aria-label="Close menu">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="/#apps" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Apps</a>
+            <a href="/#mission" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Mission</a>
+            <a href="/#contact" class="text-3xl font-black tracking-widest uppercase" onclick="closeMenu()">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 min-h-screen">
+        <div class="modal-content text-left mx-auto">
+            <a href="/aura-hydrate/" id="page-back" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#4FE0D8] hover:text-white mb-6 transition-colors">
+                <span aria-hidden="true">←</span> Back
+            </a>
+            <h1 class="text-3xl font-black mb-2 uppercase tracking-tight text-[#4FB8E0]">Terms of Service</h1>
+            <p class="text-sm uppercase tracking-widest text-white/40 font-bold mb-6">Aura Hydrate</p>
+
+            <div class="space-y-4 text-gray-100 font-medium text-base leading-relaxed">
+                <p class="font-bold text-white italic">Last Updated: May 03, 2026</p>
+
+                <p>Welcome to Aura Hydrate. These Terms of Service ("Terms") govern your access to and use of the Aura Hydrate mobile application and related services (collectively, the "Service") provided by Aura Bionics Inc. ("Aura Bionics", "we", "our", "us"), a company incorporated in Ontario, Canada.</p>
+                <p><strong>By downloading, installing, accessing, or using the Service, you agree to be bound by these Terms.</strong> If you do not agree, do not use the Service.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">⚠️ Important Health Disclaimer</h3>
+                <p>Aura Hydrate is a wellness and lifestyle tool intended for <strong>informational and motivational purposes only</strong>. It is <strong>not</strong> a medical device and does <strong>not</strong> provide medical advice, diagnosis, treatment, or hydration assessment.</p>
+                <p>Recommended hydration targets shown in the app are based on general guidance and are <strong>not</strong> personalized to your medical condition, climate, activity level, medications, or any specific health situation. Consult a qualified healthcare professional before relying on Aura Hydrate's targets, especially if you have a medical condition that affects fluid intake (including but not limited to kidney disease, heart failure, diabetes insipidus, or hyponatremia risk).</p>
+                <p>Drinking too much water in a short period can be dangerous. Listen to your body, drink at your own pace, and seek medical attention if you experience symptoms of overhydration.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">1. Eligibility</h3>
+                <p>To use the Service, you must:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li>Be <strong>at least 18 years of age</strong> (or the age of majority in your jurisdiction, if higher)</li>
+                    <li>Have the legal capacity to enter into a binding contract</li>
+                    <li>Not be barred from using the Service under applicable law or sanctions</li>
+                </ul>
+                <p>You will be asked to confirm you are 18 or older during onboarding. If we discover that you are under 18, we will block access. Because Aura Hydrate stores no personal data on our servers, there is no server-side data to delete — uninstalling the app erases everything locally.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">2. The Service</h3>
+                <p>Aura Hydrate is a mobile application that helps you track water intake. Free features include daily logging, streaks, basic stats, the league system, and core character interaction. <strong>Aura Hydrate Pro</strong> is an optional paid subscription that unlocks additional features.</p>
+                <p>The Service is provided on an <strong>"as-is"</strong> and <strong>"as-available"</strong> basis. We may add, change, or remove features at any time. We may also pause or discontinue the Service with reasonable notice.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">3. Subscriptions — Aura Hydrate Pro</h3>
+                <p>Aura Hydrate offers an auto-renewing subscription with the following options at launch:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li><strong>Monthly:</strong> $2.99 USD per month (prices in your local currency may vary based on Apple/Google's regional pricing)</li>
+                    <li><strong>Yearly:</strong> $19.99 USD per year</li>
+                </ul>
+
+                <p><strong>Free trial:</strong> New subscribers may be eligible for a <strong>7-day free trial</strong> of Aura Hydrate Pro. The trial automatically converts into a paid subscription at the end of the trial period unless you cancel before then. You can use the full Pro feature set during the trial.</p>
+
+                <p><strong>Auto-renewal:</strong> Subscriptions automatically renew at the end of each billing period (monthly or yearly) at the then-current rate. You will be charged unless you cancel at least 24 hours before the end of the current period.</p>
+
+                <p><strong>How to cancel:</strong> You can cancel any time. Subscriptions are managed by Apple App Store and Google Play, not directly by Aura Bionics. To cancel:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li><strong>iOS:</strong> Settings → Apple ID → Subscriptions → Aura Hydrate → Cancel Subscription</li>
+                    <li><strong>Android:</strong> Google Play Store → Profile → Payments &amp; subscriptions → Subscriptions → Aura Hydrate → Cancel</li>
+                </ul>
+                <p>If you cancel during the free trial, you will not be charged. If you cancel a paid subscription, you keep Pro features through the end of the current paid period and are not charged again.</p>
+
+                <p><strong>Price changes:</strong> If we change subscription pricing, we will notify you in advance. Continued use of the subscription after the change constitutes acceptance of the new price. You can cancel before the change takes effect to avoid the new price.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">4. Payment, Billing, and Refunds</h3>
+                <p>All payments and refunds are processed by <strong>Apple</strong> (iOS) or <strong>Google</strong> (Android), not by Aura Bionics. We do not have access to your payment method, full transaction details, or the ability to issue or process refunds directly.</p>
+                <p>Refund requests must be submitted to the relevant app store:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li><strong>Apple:</strong> <a class="text-[#4FE0D8] hover:underline" href="https://reportaproblem.apple.com">reportaproblem.apple.com</a></li>
+                    <li><strong>Google:</strong> Google Play Help → Refund request</li>
+                </ul>
+                <p>Apple and Google have their own refund policies and timelines. We have no influence over their decisions.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">5. Acceptable Use</h3>
+                <p>When using Aura Hydrate, you agree to:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li>Use the Service only for personal, non-commercial purposes</li>
+                    <li>Not attempt to reverse engineer, decompile, or extract source code from the app, except where this is expressly permitted by applicable law</li>
+                    <li>Not interfere with the Service, attempt to bypass subscription gating, or exploit bugs to obtain Pro features without payment</li>
+                    <li>Not impersonate another person or misrepresent your league position</li>
+                    <li>Not use Aura Hydrate to harm yourself or others, including by deliberately overhydrating</li>
+                </ul>
+                <p>Violation of this section may result in suspension or termination of access to the Service and any active subscription.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">6. League System</h3>
+                <p>The Aura Hydrate hydration league is a <strong>motivational feature</strong> that compares anonymous, aggregate hydration consistency across users. League placement is for entertainment and motivation only — it has no monetary value, does not entitle you to any prize, and may be reset or recalculated at our discretion.</p>
+                <p>League rankings are computed using anonymous signals. We do not match league entries to identifiable users.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">7. Intellectual Property</h3>
+                <p>The Service, including the Aura Hydrate name, logo, glass character, mascot, illustrations, animations, copy, sound effects, and software, is the property of Aura Bionics Inc. or our licensors and is protected by copyright, trademark, and other intellectual property laws.</p>
+                <p>We grant you a limited, personal, non-exclusive, non-transferable, revocable license to use the Service on your devices in accordance with these Terms. You receive no other rights.</p>
+                <p>You may not copy, modify, distribute, sell, or create derivative works of any part of the Service without our prior written permission.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">8. Disclaimer of Warranties</h3>
+                <p>The Service is provided <strong>"as is"</strong> and <strong>"as available"</strong>, without warranties of any kind, express or implied. To the fullest extent permitted by law, Aura Bionics disclaims all warranties, including:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li>Warranties of merchantability and fitness for a particular purpose</li>
+                    <li>Warranties that the Service will be error-free, uninterrupted, or always available</li>
+                    <li>Warranties that hydration targets, feedback, or league results are accurate, complete, or appropriate for your individual situation</li>
+                </ul>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">9. Limitation of Liability</h3>
+                <p>To the maximum extent permitted by applicable law, Aura Bionics Inc., its directors, employees, contractors, and affiliates will <strong>not</strong> be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or any loss of profits, revenue, data, goodwill, or other intangible losses, arising out of or relating to your use of (or inability to use) the Service.</p>
+                <p>To the maximum extent permitted by applicable law, our aggregate liability for any claim arising out of or relating to the Service is limited to the greater of (a) the amount you paid to us for the Service in the twelve months preceding the claim, or (b) USD $50.</p>
+                <p>Some jurisdictions do not allow the exclusion of certain warranties or limitations of liability. In those jurisdictions, the above limitations apply only to the extent permitted by law and your statutory rights remain unaffected.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">10. Suspension and Termination</h3>
+                <p>You may stop using the Service at any time by uninstalling the app and cancelling any active subscription via Apple/Google.</p>
+                <p>We may suspend or terminate your access to the Service if we reasonably believe you have violated these Terms, attempted to abuse the Service, or used it in a way that creates a legal or safety risk. Where reasonable, we will provide notice. If your access is terminated, any active subscription will continue to be governed by Apple's/Google's refund policies.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">11. Governing Law and Disputes</h3>
+                <p>These Terms are governed by the laws of the <strong>Province of Ontario, Canada</strong>, without regard to conflict of laws principles.</p>
+                <p>Any dispute arising out of or relating to the Service or these Terms shall be resolved in the courts of Ontario, Canada, except where mandatory consumer-protection laws of your country of residence require otherwise. If you are a consumer in the European Union, the United Kingdom, or another jurisdiction with mandatory dispute-resolution rules, those rules apply and these Terms do not deprive you of rights you have under your local law.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">12. Changes to These Terms</h3>
+                <p>We may update these Terms from time to time. Material changes will be communicated through:</p>
+                <ul class="list-disc list-outside pl-5 space-y-2 my-2">
+                    <li>An in-app notice the next time you open Aura Hydrate</li>
+                    <li>An updated "Last Updated" date at the top of these Terms</li>
+                </ul>
+                <p>Continued use of the Service after an update constitutes acceptance of the revised Terms. If you disagree with the changes, stop using the Service and cancel any active subscription.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">13. Privacy</h3>
+                <p>Your privacy is described in detail in our <a class="text-[#4FE0D8] hover:underline" href="/aura-hydrate/privacy/">Privacy Policy</a>, which is incorporated into these Terms by reference. The short version: Aura Hydrate is fully anonymous; we collect no personal data; everything stays on your device.</p>
+
+                <hr class="border-white/10 my-6"/>
+
+                <h3 class="text-white font-bold uppercase text-sm tracking-widest mt-6">14. Contact</h3>
+                <p>For any questions about these Terms or the Service, please contact:</p>
+                <p><strong>Aura Bionics Inc.</strong><br/>
+                Ontario, Canada<br/>
+                Email: <strong>info@aurabionics.com</strong></p>
+
+                <hr class="border-white/10 my-6"/>
+                <p><strong>Version:</strong> 1.0<br/>
+                <strong>Effective Date:</strong> May 03, 2026</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-16 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="text-gray-400 text-sm font-semibold tracking-widest uppercase">
+                © 2026 AURA BIONICS INC.
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-12 gap-y-4">
+                <a href="/aura-hydrate/privacy/" class="text-gray-400 hover:text-[#4FE0D8] transition-colors text-xs uppercase tracking-widest font-bold">Privacy Policy</a>
+                <a href="/aura-hydrate/terms/" class="text-gray-400 hover:text-[#4FE0D8] transition-colors text-xs uppercase tracking-widest font-bold">Terms of Service</a>
+                <a href="/delete-account/#aura-hydrate" class="text-gray-400 hover:text-[#4FE0D8] transition-colors text-xs uppercase tracking-widest font-bold">Delete Data</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+        if (menuClose) menuClose.addEventListener('click', closeMenu);
+        (function () {
+            var back = document.getElementById('page-back');
+            if (!back) return;
+            back.addEventListener('click', function (e) {
+                var ref = document.referrer;
+                if (ref && ref.indexOf(location.origin) === 0) {
+                    e.preventDefault();
+                    history.back();
+                }
+            });
+        })();
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (nav) {
+                if (window.scrollY > 50) nav.classList.add('bg-black/95');
+                else nav.classList.remove('bg-black/95');
+            }
+        });
+    </script>
+</body>
+</html>

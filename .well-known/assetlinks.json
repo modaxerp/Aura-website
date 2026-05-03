@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.aurabionics.aura_bionics",
+      "sha256_cert_fingerprints": [
+        "89:68:A8:B0:A3:C7:86:48:B1:3E:79:08:90:3F:B2:38:11:07:CF:36:D0:BD:19:70:F8:B7:D0:8F:C8:04:0E:86"
+      ]
+    }
+  }
+]

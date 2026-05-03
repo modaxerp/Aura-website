@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "SLYH89XBFF.com.aurabionics.auraBionics",
+        "paths": [
+          "/circle/*",
+          "/harmony/*"
+        ]
+      }
+    ]
+  }
+}
